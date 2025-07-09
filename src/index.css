@@ -10,6 +10,7 @@
 	--color-secondary: #00a8e8;
 	--color-accent: #008f5f;
 	--color-neutral: #111718;
+	--color-neutral-content: #d1e1e1;
 	--color-success: #3ba976;
 	--color-error: #dc3545;
 	--color-warning: #eea006;
@@ -21,7 +22,8 @@
 	--color-primary: #33bfbf;
 	--color-secondary: #00a8e8;
 	--color-accent: #008f5f;
-	--color-neutral: #f3f4f5;
+	--color-neutral: #d1e1e1;
+	--color-neutral-content: #111718;
 	--color-success: #3ba976;
 	--color-error: #dc3545;
 	--color-warning: #eea006;
