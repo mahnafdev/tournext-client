@@ -13,9 +13,12 @@ const NavBar = () => {
 				{/* Logo */}
 				<Logo />
 				{/* Navigation Links Bar */}
-				<ul className="horizontal-links flex items-center gap-x-2">
+				<ul
+					id="nav-links"
+					className="flex items-center gap-x-2"
+				>
 					{/* 'Home' Link */}
-					<li>
+					<li className="nav-link">
 						<NavLink
 							to="/"
 							className="px-4 py-2.5 rounded-full hover:bg-primary/20 active:bg-primary/30"
@@ -24,7 +27,7 @@ const NavBar = () => {
 						</NavLink>
 					</li>
 					{/* 'About Us' Link */}
-					<li>
+					<li className="nav-link">
 						<NavLink
 							to="/about"
 							className="px-4 py-2.5 rounded-full hover:bg-primary/20 active:bg-primary/30"
@@ -33,7 +36,7 @@ const NavBar = () => {
 						</NavLink>
 					</li>
 					{/* 'Tours' Link */}
-					<li>
+					<li className="nav-link">
 						<NavLink
 							to="/tours"
 							className="px-4 py-2.5 rounded-full hover:bg-primary/20 active:bg-primary/30"
@@ -42,7 +45,7 @@ const NavBar = () => {
 						</NavLink>
 					</li>
 					{/* 'Community' Link */}
-					<li>
+					<li className="nav-link">
 						<NavLink
 							to="/community"
 							className="px-4 py-2.5 rounded-full hover:bg-primary/20 active:bg-primary/30"
@@ -52,9 +55,15 @@ const NavBar = () => {
 					</li>
 				</ul>
 				{/* Call-To-Action Buttons */}
-				<div className="nav-buttons flex items-center gap-x-3 text-lg font-semibold">
+				<div
+					id="nav-buttons"
+					className="flex items-center gap-x-3 text-lg font-semibold"
+				>
 					{/* 'Login' Button */}
-					<Link to="/auth/login">
+					<Link
+						to="/auth/login"
+						className="nav-button"
+					>
 						<button
 							type="button"
 							className="btn btn-lg btn-outline btn-neutral rounded-lg"
@@ -63,7 +72,10 @@ const NavBar = () => {
 						</button>
 					</Link>
 					{/* 'Be A Sponsor' Button */}
-					<Link to="/sponsorship">
+					<Link
+						to="/sponsorship"
+						className="nav-button"
+					>
 						<button
 							type="button"
 							className="btn btn-lg btn-primary rounded-lg"
@@ -75,6 +87,7 @@ const NavBar = () => {
 					<a
 						href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
 						target="_blank"
+						className="nav-button"
 					>
 						<button
 							type="button"
