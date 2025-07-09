@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200..800&display=swap");
+@import "tailwindcss";
+@plugin "daisyui" {
+	themes: sunset, emerald;
+}
+@plugin "daisyui/theme" {
+	name: "emerald";
+	default: true;
+	--color-primary: #33bfbf;
+	--color-secondary: #00a8e8;
+	--color-accent: #008f5f;
+	--color-neutral: #111718;
+	--color-success: #3ba976;
+	--color-error: #dc3545;
+	--color-warning: #eea006;
+}
+@plugin "daisyui/theme" {
+	name: "sunset";
+	prefersdark: true;
+	--color-base-100: #12191f;
+	--color-primary: #33bfbf;
+	--color-secondary: #00a8e8;
+	--color-accent: #008f5f;
+	--color-neutral: #f3f4f5;
+	--color-success: #3ba976;
+	--color-error: #dc3545;
+	--color-warning: #eea006;
+}
+@theme {
+	--font-sora: "Sora", Verdana, sans-serif;
+}
