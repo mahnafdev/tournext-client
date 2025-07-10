@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200..700&display=swap");
 @import "tailwindcss";
 @plugin "daisyui" {
-	themes: sunset, emerald;
+	themes: sunset;
 }
-@plugin "daisyui/theme" {
+/* @plugin "daisyui/theme" {
 	name: "emerald";
 	default: true;
 	--color-primary: #33bfbf;
@@ -14,7 +14,7 @@
 	--color-success: #3ba976;
 	--color-error: #dc3545;
 	--color-warning: #eea006;
-}
+} */
 @plugin "daisyui/theme" {
 	name: "sunset";
 	prefersdark: true;

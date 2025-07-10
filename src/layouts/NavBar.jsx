@@ -8,7 +8,7 @@ const NavBar = () => {
 		<header className="sticky top-1 z-[99]">
 			<nav
 				id="navbar"
-				className="mx-12 my-4 px-8 py-4 bg-base-100/95 rounded-full flex items-center justify-between shadow shadow-primary/50"
+				className="mx-12 my-4 px-8 py-4 bg-base-100/75 backdrop-blur-md rounded-full flex items-center justify-between shadow shadow-primary/50"
 			>
 				{/* Logo */}
 				<Logo />
