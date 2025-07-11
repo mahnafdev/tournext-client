@@ -84,7 +84,7 @@ const TravelEssentials = () => {
 				<h2 className="text-4xl font-semibold">Travel Essentials</h2>
 				<p>Gear up for your tours or adventures with the perfect essentials/kits.</p>
 			</div>
-			<div className="grid grid-cols-4 gap-6">
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{essentials.map((essential) => (
 					<TravelEssentialCard
 						key={essential.id}

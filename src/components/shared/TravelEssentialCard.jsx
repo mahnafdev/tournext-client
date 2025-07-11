@@ -2,7 +2,7 @@ const TravelEssentialCard = ({ essentialData }) => {
 	const { id, image, name, brand, category, price, sold } = essentialData;
 	return (
 		<div className="border border-accent bg-zinc-900 rounded-3xl drop-shadow-[0_7px_0px_var(--color-black)] hover:drop-shadow-none transition-[filter]">
-			<div className="w-full h-[26.5rem] rounded-t-3xl">
+			<div className="w-full h-64 md:h-80 lg:h-[26.5rem] rounded-t-3xl">
 				<img
 					src={image}
 					alt="Product Image"
