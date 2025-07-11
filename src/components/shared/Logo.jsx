@@ -10,7 +10,7 @@ const Logo = () => {
 				<img
 					src={LogoImage}
 					alt="Logo Image"
-					className="size-10 grayscale group-hover:grayscale-0 transition-[filter]"
+					className="size-8 lg:size-10 grayscale group-hover:grayscale-0 transition-[filter]"
 				/>
 				{/* Logo Text */}
 				<h4 className="text-2xl font-bold">TourNext</h4>
