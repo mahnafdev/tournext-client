@@ -12,7 +12,7 @@ const Footer = () => {
 	return (
 		<footer
 			id="footer"
-			className="mx-12 my-4 bg-neutral text-neutral-content px-24 py-20 rounded-2xl flex flex-col items-center gap-y-8"
+			className="mx-4 md:mx-12 mt-24 mb-4 bg-neutral text-neutral-content p-6 lg:px-24 lg:py-20 rounded-2xl flex flex-col items-center gap-y-8"
 		>
 			{/* Footer Head part */}
 			<div
@@ -22,18 +22,18 @@ const Footer = () => {
 				{/* Platform Logo */}
 				<Logo />
 				{/* Slogan */}
-				<p className="text-center">
+				<p className="text-center text-balance">
 					Explore Smarter, Travel Nicer. Next-Level Tourism starts here.
 				</p>
 			</div>
 			{/* A horizontal divider */}
 			<div className="w-full border border-dashed border-accent"></div>
 			{/* Useful links */}
-			<div className="w-3/5 space-y-4">
+			<div className="lg:w-3/5 space-y-4">
 				{/* Legal links */}
-				<div className="flex items-center justify-between">
+				<div className="flex flex-col md:flex-row md:items-center justify-between max-md:gap-y-3 md:gap-x-8 lg:gap-x-0">
 					<h6 className="text-lg font-semibold">Legal</h6>
-					<ul className="flex gap-2">
+					<ul className="flex gap-2 flex-wrap">
 						{/* 'Terms & Conditions' link */}
 						<li>
 							<Link
@@ -66,9 +66,9 @@ const Footer = () => {
 					</ul>
 				</div>
 				{/* Services links */}
-				<div className="flex items-center justify-between">
+				<div className="flex flex-col md:flex-row md:items-center justify-between max-md:gap-y-3 md:gap-x-8 lg:gap-x-0">
 					<h6 className="text-lg font-semibold">Services</h6>
-					<ul className="flex gap-2">
+					<ul className="flex gap-2 flex-wrap">
 						{/* 'Community' link */}
 						<li>
 							<Link
@@ -106,7 +106,7 @@ const Footer = () => {
 			{/* Developer Social links */}
 			<div
 				id="footer-socials"
-				className="flex gap-x-4"
+				className="flex gap-x-2 md:gap-x-4"
 			>
 				{/* LinkedIn Profile */}
 				<a
