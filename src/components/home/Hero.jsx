@@ -12,10 +12,10 @@ const Hero = () => {
 		<section
 			id="hero"
 			role="banner"
-			className="space-y-6"
+			className="space-y-4 lg:space-y-6"
 		>
 			{/* Slogan */}
-			<h1 className="text-5xl font-bold text-primary text-center">
+			<h1 className="max-sm:h-16 text-3xl md:text-4xl lg:text-5xl font-bold text-primary text-center">
 				<Typewriter
 					words={[
 						"Next-Level Tourism Starts Here.",
@@ -29,7 +29,7 @@ const Hero = () => {
 				/>
 			</h1>
 			{/* Sub-text */}
-			<p className="max-w-6xl mx-auto text-center">
+			<p className="max-sm:text-sm max-w-6xl mx-auto text-center">
 				Whether you're a traveler or a tour guide, TourNext provides a scalable system.
 				Travelers can explore & book a tour, track his/her bookings. Tour Guides can
 				publish & manage a tour, track & approve traveler's bookings. The automated and
@@ -40,7 +40,7 @@ const Hero = () => {
 				<Link to="/tours">
 					<button
 						type="button"
-						className="btn btn-lg btn-primary"
+						className="btn md:btn-lg btn-primary"
 					>
 						Start Exploring
 					</button>
@@ -58,28 +58,28 @@ const Hero = () => {
 					<img
 						src={Mountains}
 						alt="Mountain"
-						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-4xl"
+						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl lg:rounded-4xl"
 					/>
 				</div>
 				<div className="hero-slide">
 					<img
 						src={ForestRiver}
 						alt="Forest River"
-						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-4xl"
+						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl lg:rounded-4xl"
 					/>
 				</div>
 				<div className="hero-slide">
 					<img
 						src={SeaBeach}
 						alt="Sea Beach"
-						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-4xl"
+						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl lg:rounded-4xl"
 					/>
 				</div>
 				<div className="hero-slide">
 					<img
 						src={River}
 						alt="River"
-						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-4xl"
+						className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl lg:rounded-4xl"
 					/>
 				</div>
 			</Carousel>
