@@ -5,7 +5,7 @@ const Overview = () => {
 	return (
 		<section
 			id="overview-section"
-			className="relative w-full h-[37.5rem] overflow-hidden rounded-4xl"
+			className="relative w-full h-[28.125rem] md:h-[31.25rem] lg:h-[37.5rem] overflow-hidden rounded-3xl md:rounded-4xl"
 		>
 			{/* Background Video */}
 			<video
@@ -13,13 +13,13 @@ const Overview = () => {
 				autoPlay
 				muted
 				loop
-				className="absolute top-0 left-0 w-full h-full object-cover rounded-4xl"
+				className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl md:rounded-4xl"
 			/>
 			{/* Dark Overlay Gradient */}
 			<div className="absolute inset-0 bg-gradient-to-b from-black/55 to-black/55 rounded-3xl z-10" />
 			{/* Section Text Content */}
-			<div className="relative z-20 flex flex-col items-center justify-center h-full space-y-5 text-center">
-				<h2 className="text-4xl font-semibold">
+			<div className="relative z-20 flex flex-col items-center justify-center h-full space-y-5 text-center mx-4">
+				<h2 className="text-2xl md:text-4xl font-semibold">
 					Next-Level Abilities for Travelers & Tour Guides
 				</h2>
 				<p className="max-w-4xl">
