@@ -8,7 +8,13 @@ const AuthLayout = () => {
 	return (
 		<>
 			{/* Toast container from Hot Toast */}
-			<Toaster />
+			<Toaster
+				position="top-left"
+				reverseOrder={true}
+				toastOptions={{
+					duration: 2500,
+				}}
+			/>
 			{/* The page in a 2-column layout */}
 			<div className="grid grid-cols-2">
 				{/* Logo and page in the left */}

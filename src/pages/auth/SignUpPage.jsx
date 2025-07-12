@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const SignUpPage = () => {
 	const {
@@ -8,8 +10,23 @@ const SignUpPage = () => {
 		reset,
 		formState: { errors },
 	} = useForm();
+	const { signUpWithEmailAndPassword } = useAuth();
+	const navigate = useNavigate();
 	const handleSignUp = (data) => {
-		reset();
+		const { email, password } = data;
+		signUpWithEmailAndPassword(email, password)
+			.then((authCredentials) => {
+				reset();
+				toast.success("Account created successfully");
+				setTimeout(() => {
+					navigate("/");
+				}, 2500);
+			})
+			.catch((error) => {
+				console.log(`${error.message} [${error.code}]`);
+				console.error("Firebase Auth Error:", error);
+				toast.error("Couldn't create account. Please try once more.");
+			});
 	};
 	return (
 		<main
@@ -56,9 +73,8 @@ const SignUpPage = () => {
 								{...register("username", {
 									required: "Username is required",
 									pattern: {
-										value: /^[a-z0-9]+$/,
-										message:
-											"Username can only contain lowercase letters and digits",
+										value: /^[a-zA-Z0-9]+$/,
+										message: "Username can only contain letters and digits",
 									},
 								})}
 							/>
