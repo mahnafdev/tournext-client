@@ -3,9 +3,11 @@ import Logo from "../components/shared/Logo";
 import "./NavBar.css";
 import { TbBrandGithub, TbMenu2 } from "react-icons/tb";
 import { useState } from "react";
+import useAuth from "../hooks/useAuth";
 
 const NavBar = () => {
 	const [isShowMenu, setIsShowMenu] = useState(false);
+	const { user } = useAuth();
 	return (
 		<header className="sticky top-1 z-[99]">
 			<nav
@@ -153,17 +155,16 @@ const NavBar = () => {
 					className="hidden md:flex items-center gap-x-1 lg:gap-x-3 text-lg font-semibold"
 				>
 					{/* 'Login' Button */}
-					<Link
-						to="/auth/login"
-						className="nav-button"
-					>
-						<button
-							type="button"
-							className="btn lg:btn-lg btn-outline btn-neutral rounded-lg"
-						>
-							Login
-						</button>
-					</Link>
+					{!user && (
+						<Link to="/auth/login">
+							<button
+								type="button"
+								className="btn btn-lg btn-outline btn-neutral rounded-lg"
+							>
+								Login
+							</button>
+						</Link>
+					)}
 					{/* 'Be A Sponsor' Button */}
 					<Link
 						to="/sponsorship"
@@ -176,6 +177,18 @@ const NavBar = () => {
 							Be A Sponsor
 						</button>
 					</Link>
+					{user &&
+						(user.photoURL ? (
+							<img
+								src={user.photoURL}
+								alt="User Image"
+								className="size-10 border border-accent rounded-full"
+							/>
+						) : (
+							<div className="size-10 text-2xl bg-neutral  text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">
+								{user?.displayName?.charAt(0).toUpperCase() || "?"}
+							</div>
+						))}
 					{/* 'GitHub Repository' Button */}
 					<a
 						href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
