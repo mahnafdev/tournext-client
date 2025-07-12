@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
 	const {
@@ -8,8 +10,23 @@ const LoginPage = () => {
 		reset,
 		formState: { errors },
 	} = useForm();
+	const { loginWithEmailAndPassword } = useAuth();
+	const navigate = useNavigate();
 	const handleLogin = (data) => {
-		reset();
+		const { email, password } = data;
+		loginWithEmailAndPassword(email, password)
+			.then((authCredentials) => {
+				reset();
+				toast.success("Logged in successfully");
+				setTimeout(() => {
+					navigate("/");
+				}, 2500);
+			})
+			.catch((error) => {
+				console.log(`${error.message} [${error.code}]`);
+				console.error("Firebase Auth Error:", error);
+				toast.error("Couldn't login to account. Please try once more.");
+			});
 	};
 	return (
 		<main
