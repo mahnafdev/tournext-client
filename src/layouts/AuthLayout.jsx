@@ -24,7 +24,7 @@ const AuthLayout = () => {
 				<div className="min-h-screen h-full bg-primary/25 grid place-items-center">
 					<Lottie
 						animationData={AuthLottie}
-						loop
+						loop={false}
 						className="min-w-sm max-w-xl"
 					/>
 				</div>

@@ -37,15 +37,8 @@ const LoginPage = () => {
 							<span className="label text-neutral-300">Email</span>
 							<input
 								type="email"
-								name="email"
 								placeholder="you@example.com"
-								{...register("email", {
-									required: "Email is required",
-									pattern: {
-										value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-										message: "Invalid email address",
-									},
-								})}
+								{...register("email", { required: "Email is required" })}
 							/>
 						</label>
 						{errors.email && <p className="text-error">{errors.email.message}</p>}
@@ -55,7 +48,6 @@ const LoginPage = () => {
 							<span className="label text-neutral-300">Password</span>
 							<input
 								type="password"
-								name="password"
 								placeholder="••••••••••••"
 								{...register("password", { required: "Password is required" })}
 							/>

@@ -1,4 +1,4 @@
-nav ul.nav-links li a.active {
+nav ul#nav-links li.nav-link a.active {
 	background-color: var(--color-primary);
 	color: var(--color-zinc-900);
 	font-weight: 600;
