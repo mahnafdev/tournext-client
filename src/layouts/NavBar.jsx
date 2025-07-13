@@ -7,7 +7,7 @@ import useAuth from "../hooks/useAuth";
 
 const NavBar = () => {
 	const [isShowMenu, setIsShowMenu] = useState(false);
-	const { user } = useAuth();
+	const { loading, user } = useAuth();
 	return (
 		<header className="sticky top-1 z-[99]">
 			<nav
@@ -155,7 +155,7 @@ const NavBar = () => {
 					className="hidden md:flex items-center gap-x-1 lg:gap-x-3 text-lg font-semibold"
 				>
 					{/* 'Login' Button */}
-					{!user && (
+					{!loading && !user && (
 						<Link to="/auth/login">
 							<button
 								type="button"
@@ -183,6 +183,7 @@ const NavBar = () => {
 								src={user.photoURL}
 								alt="User Image"
 								className="size-10 border border-accent rounded-full"
+								referrerPolicy="no-referrer"
 							/>
 						) : (
 							<div className="size-10 text-2xl bg-neutral  text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">

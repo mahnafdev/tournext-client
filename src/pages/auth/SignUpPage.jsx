@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import GoogleLogin from "../../components/auth/GoogleLogin";
 
 const SignUpPage = () => {
 	const {
@@ -139,6 +140,8 @@ const SignUpPage = () => {
 						Sign Up
 					</button>
 				</form>
+				<div className="divider text-zinc-400">OR</div>
+				<GoogleLogin />
 				<p className="text-neutral-600">
 					Already have any account?{" "}
 					<Link
