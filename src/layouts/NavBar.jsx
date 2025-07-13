@@ -177,19 +177,46 @@ const NavBar = () => {
 							Be A Sponsor
 						</button>
 					</Link>
-					{user &&
-						(user.photoURL ? (
-							<img
-								src={user.photoURL}
-								alt="User Image"
-								className="size-10 border border-accent rounded-full"
-								referrerPolicy="no-referrer"
-							/>
-						) : (
-							<div className="size-10 text-2xl bg-neutral  text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">
-								{user?.displayName?.charAt(0).toUpperCase() || "?"}
-							</div>
-						))}
+					{user && (
+						<div className="dropdown dropdown-end">
+							<button
+								type="button"
+								className="grid place-items-center cursor-pointer"
+							>
+								{user.photoURL ? (
+									<img
+										src={user.photoURL}
+										alt="User Image"
+										className="size-10 border border-accent rounded-full"
+										referrerPolicy="no-referrer"
+									/>
+								) : (
+									<div className="size-10 text-2xl bg-neutral  text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">
+										{user?.displayName?.charAt(0).toUpperCase() || "?"}
+									</div>
+								)}
+							</button>
+							<ul className="dropdown-content menu bg-base-300 rounded-2xl w-48 mt-2 p-2 drop-shadow-[0_8px_4px_#111718]">
+								<li>
+									<h5
+										className="text-[1rem] font-bold text-secondary leading-7 line-clamp-1"
+										title={user.displayName}
+									>
+										{user.displayName}
+									</h5>
+									<p className="text-zinc-300 font-medium text-xs -mt-2">
+										{user.email}
+									</p>
+								</li>
+								<li>
+									<Link to="/dashboard/profile">Profile</Link>
+								</li>
+								<li>
+									<Link to="/dashboard">Dashboard</Link>
+								</li>
+							</ul>
+						</div>
+					)}
 					{/* 'GitHub Repository' Button */}
 					<a
 						href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
