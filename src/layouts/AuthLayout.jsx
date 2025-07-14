@@ -9,7 +9,7 @@ const AuthLayout = () => {
 		<>
 			{/* Toast container from Hot Toast */}
 			<Toaster
-				position="top-left"
+				position="top-right"
 				reverseOrder={true}
 				toastOptions={{
 					duration: 2500,

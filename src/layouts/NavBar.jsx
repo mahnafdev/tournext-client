@@ -1,13 +1,28 @@
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import Logo from "../components/shared/Logo";
 import "./NavBar.css";
 import { TbBrandGithub, TbMenu2 } from "react-icons/tb";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
 	const [isShowMenu, setIsShowMenu] = useState(false);
-	const { loading, user } = useAuth();
+	const { loading, user, logout } = useAuth();
+	const navigate = useNavigate();
+	const handleLogout = () => {
+		logout()
+			.then((authCredentials) => {
+				toast.success("Logged out successfully");
+				setTimeout(() => {
+					navigate("/auth/login");
+				}, 2500);
+			})
+			.catch((error) => {
+				console.log(`${error?.message} [${error?.code}]`);
+				toast.error("Couldn't logout from account. Please try once more?");
+			});
+	};
 	return (
 		<header className="sticky top-1 z-[99]">
 			<nav
@@ -214,6 +229,13 @@ const NavBar = () => {
 								<li>
 									<Link to="/dashboard">Dashboard</Link>
 								</li>
+								<button
+									type="button"
+									className="m-2 btn btn-accent btn-outline w-fit text-[1rem] rounded-md"
+									onClick={handleLogout}
+								>
+									Logout
+								</button>
 							</ul>
 						</div>
 					)}
