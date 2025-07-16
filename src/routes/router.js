@@ -5,6 +5,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import LoginPage from "../pages/auth/LoginPage";
 import SignUpPage from "../pages/auth/SignUpPage";
 import PostTourPage from "../pages/tours/PostTourPage";
+import AboutUsPage from "../pages/AboutUsPage";
 
 const router = createBrowserRouter([
 	{
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				Component: HomePage,
+			},
+			{
+				path: "/about",
+				Component: AboutUsPage,
 			},
 			{
 				path: "/tours/post",
