@@ -1,3 +1,4 @@
+import GetApp from "../components/home/GetApp";
 import Hero from "../components/home/Hero";
 import Overview from "../components/home/Overview";
 import TravelEssentials from "../components/home/TravelEssentials";
@@ -11,6 +12,7 @@ const HomePage = () => {
 			<Hero />
 			<Overview />
 			<TravelEssentials />
+			<GetApp />
 		</main>
 	);
 };

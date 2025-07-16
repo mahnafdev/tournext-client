@@ -167,11 +167,14 @@ const NavBar = () => {
 				{/* Call-To-Action Buttons */}
 				<div
 					id="nav-buttons"
-					className="hidden md:flex items-center gap-x-1 lg:gap-x-3 text-lg font-semibold"
+					className="flex items-center gap-x-1 lg:gap-x-3 text-lg font-semibold"
 				>
 					{/* 'Login' Button */}
 					{!loading && !user && (
-						<Link to="/auth/login">
+						<Link
+							to="/auth/login"
+							className="max-md:hidden"
+						>
 							<button
 								type="button"
 								className="btn btn-lg btn-outline btn-neutral rounded-lg"
@@ -183,7 +186,7 @@ const NavBar = () => {
 					{/* 'Be A Sponsor' Button */}
 					<Link
 						to="/sponsorship"
-						className="nav-button"
+						className="nav-button max-sm:hidden"
 					>
 						<button
 							type="button"
