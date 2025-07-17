@@ -1,11 +1,30 @@
 import { Link } from "react-router";
 import ShortVideo from "../../assets/overview/overview-short-video.mp4";
+import { motion } from "motion/react";
 
 const Overview = () => {
 	return (
-		<section
+		<motion.section
 			id="overview-section"
 			className="relative w-full h-[28.125rem] md:h-[31.25rem] lg:h-[37.5rem] overflow-hidden rounded-3xl md:rounded-4xl"
+			initial={{
+				scale: 0,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 100,
+			}}
+			transition={{
+				opacity: {
+					duration: 0.7,
+					type: "tween",
+				},
+				scale: {
+					duration: 0.8,
+					type: "spring",
+				},
+			}}
 		>
 			{/* Background Video */}
 			<video
@@ -39,7 +58,7 @@ const Overview = () => {
 					</button>
 				</Link>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 

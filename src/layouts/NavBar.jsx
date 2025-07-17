@@ -5,6 +5,7 @@ import { TbBrandGithub, TbMenu2 } from "react-icons/tb";
 import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 const NavBar = () => {
 	const [isShowMenu, setIsShowMenu] = useState(false);
@@ -24,7 +25,27 @@ const NavBar = () => {
 			});
 	};
 	return (
-		<header className="sticky top-1 z-[99]">
+		<motion.header
+			className="sticky top-1 z-[99]"
+			initial={{
+				y: -150,
+				opacity: 0,
+			}}
+			animate={{
+				y: 0,
+				opacity: 100,
+			}}
+			transition={{
+				opacity: {
+					duration: 0.5,
+					type: "tween",
+				},
+				y: {
+					duration: 0.8,
+					type: "spring",
+				},
+			}}
+		>
 			<nav
 				id="navbar"
 				className="mx-2 lg:mx-12 my-4 px-6 lg:px-8 py-3 lg:py-4 bg-base-100/75 backdrop-blur-md rounded-full flex items-center justify-between shadow shadow-primary/50"
@@ -261,7 +282,7 @@ const NavBar = () => {
 					</a>
 				</div>
 			</nav>
-		</header>
+		</motion.header>
 	);
 };
 

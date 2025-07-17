@@ -1,4 +1,5 @@
 import TravelEssentialCard from "../shared/TravelEssentialCard";
+import { motion } from "motion/react";
 
 const TravelEssentials = () => {
 	const essentials = [
@@ -76,9 +77,27 @@ const TravelEssentials = () => {
 		},
 	];
 	return (
-		<section
+		<motion.section
 			id="travel-essentials-section"
 			className="space-y-12"
+			initial={{
+				scale: 0,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 100,
+			}}
+			transition={{
+				opacity: {
+					duration: 0.7,
+					type: "tween",
+				},
+				scale: {
+					duration: 0.8,
+					type: "spring",
+				},
+			}}
 		>
 			<div className="text-center space-y-3">
 				<h2 className="text-4xl font-semibold">Travel Essentials</h2>
@@ -92,7 +111,7 @@ const TravelEssentials = () => {
 					/>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 

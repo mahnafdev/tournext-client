@@ -1,9 +1,30 @@
 import IphoneMockup from "../../assets/mockup/brand-iphone-mockup.png";
 import IpadMockup from "../../assets/mockup/brand-ipad-mockup.png";
+import { motion } from "motion/react";
 
 const GetApp = () => {
 	return (
-		<section className="p-16 bg-primary/40 rounded-4xl flex items-center justify-between">
+		<motion.section
+			className="p-16 bg-primary/40 rounded-4xl flex items-center justify-between"
+			initial={{
+				scale: 0,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 100,
+			}}
+			transition={{
+				opacity: {
+					duration: 0.7,
+					type: "tween",
+				},
+				scale: {
+					duration: 0.8,
+					type: "spring",
+				},
+			}}
+		>
 			{/* Mockup Images */}
 			<div className="grid grid-cols-2 gap-1 bg-base-300/75 rounded-2xl">
 				{/* Iphone Mockup */}
@@ -55,7 +76,7 @@ const GetApp = () => {
 					</a>
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 

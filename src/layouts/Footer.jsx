@@ -7,12 +7,31 @@ import {
 	TbBrandX,
 	TbBrandYoutube,
 } from "react-icons/tb";
+import { motion } from "motion/react";
 
 const Footer = () => {
 	return (
-		<footer
+		<motion.footer
 			id="footer"
 			className="mx-4 md:mx-12 mt-24 mb-4 bg-neutral text-neutral-content p-6 lg:px-24 lg:py-20 rounded-2xl flex flex-col items-center gap-y-8"
+			initial={{
+				y: 150,
+				opacity: 0,
+			}}
+			whileInView={{
+				y: 0,
+				opacity: 100,
+			}}
+			transition={{
+				opacity: {
+					duration: 0.5,
+					type: "tween",
+				},
+				y: {
+					duration: 0.8,
+					type: "spring",
+				},
+			}}
 		>
 			{/* Footer Head part */}
 			<div
@@ -164,7 +183,7 @@ const Footer = () => {
 					/>
 				</a>
 			</div>
-		</footer>
+		</motion.footer>
 	);
 };
 
