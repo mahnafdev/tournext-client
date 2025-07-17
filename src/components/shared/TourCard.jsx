@@ -2,7 +2,7 @@ import { TbArrowBigDownLine, TbArrowBigDownLineFilled } from "react-icons/tb";
 import { Link } from "react-router";
 
 const TourCard = ({ tourData }) => {
-	const { tour_id: tourId, images, tour, location, status } = tourData;
+	const { tour_id: tourId, images, tour, location } = tourData;
 	const tourTypeSplitted = tour?.type?.split(" ");
 	const tourType = tourTypeSplitted
 		.map((word) => word[0].toUpperCase() + word.slice(1))
@@ -33,8 +33,8 @@ const TourCard = ({ tourData }) => {
 						className="badge badge-neutral"
 						title="Tour Status"
 					>
-						{status?.tour[0].toUpperCase()}
-						{status?.tour.slice(1)}
+						{tour?.status[0].toUpperCase()}
+						{tour?.status.slice(1)}
 					</span>
 				</div>
 				{/* Tour Summary */}

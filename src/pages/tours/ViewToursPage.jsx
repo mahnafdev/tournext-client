@@ -26,7 +26,7 @@ const ViewToursPage = () => {
 				</p>
 			</div>
 			{/* Display Tours in Masonry Grid layout */}
-			<div className="flex flex-wrap gap-4">
+			<div className="flex flex-wrap justify-center gap-6">
 				{tours.map((tour) => (
 					<TourCard
 						key={tour._id}
