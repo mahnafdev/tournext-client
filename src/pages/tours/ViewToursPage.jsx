@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
 import apiClient from "../../services/apiClient";
 import TourCard from "../../components/shared/TourCard";
+import { useQuery } from "@tanstack/react-query";
 
 const ViewToursPage = () => {
-	const [tours, setTours] = useState([]);
-	useEffect(() => {
-		apiClient
-			.get("/tours")
-			.then((res) => setTours(res.data))
-			.catch((error) => {
-				console.log(`Axios Error: ${error.message}`);
-			});
-	}, []);
+	const { data: tours } = useQuery({
+		queryKey: ["all-tours"],
+		queryFn: async () => {
+			const res = await apiClient.get("/tours");
+			return res.data;
+		},
+	});
 	return (
 		<main className="mx-4 my-10 md:m-12 space-y-10">
 			{/* Page heading and subtext */}
@@ -27,7 +25,7 @@ const ViewToursPage = () => {
 			</div>
 			{/* Display Tours in Masonry Grid layout */}
 			<div className="flex flex-wrap justify-center gap-6">
-				{tours.map((tour) => (
+				{tours?.map((tour) => (
 					<TourCard
 						key={tour._id}
 						tourData={tour}
