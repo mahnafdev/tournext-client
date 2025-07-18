@@ -41,7 +41,7 @@ const PostTourForm = () => {
 		data.posted_by = user.email;
 		if (data.timing.start_date > data.posted_at) data.tour.status = "upcoming";
 		else if (data.timing.start_date < data.posted_at) data.tour.status = "completed";
-		else data.tour.status = "running";
+		else data.tour.status = "ongoing";
 		apiClient
 			.post("/tours", data)
 			.then((response) => {

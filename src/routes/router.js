@@ -7,6 +7,7 @@ import SignUpPage from "../pages/auth/SignUpPage";
 import PostTourPage from "../pages/tours/PostTourPage";
 import AboutUsPage from "../pages/AboutUsPage";
 import ViewToursPage from "../pages/tours/ViewToursPage";
+import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
 
 const router = createBrowserRouter([
 	{
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
 			{
 				path: "/tours/post",
 				Component: PostTourPage,
+			},
+			{
+				path: "/tours/details/:tour_id",
+				Component: ViewTourDetailsPage,
 			},
 		],
 	},

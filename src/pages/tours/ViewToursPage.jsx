@@ -3,6 +3,7 @@ import TourCard from "../../components/shared/TourCard";
 import { useQuery } from "@tanstack/react-query";
 
 const ViewToursPage = () => {
+	// Fetch tours data
 	const { data: tours } = useQuery({
 		queryKey: ["all-tours"],
 		queryFn: async () => {
