@@ -28,7 +28,7 @@ const ViewToursPage = () => {
 			<div className="flex flex-wrap justify-center gap-6">
 				{tours?.map((tour) => (
 					<TourCard
-						key={tour._id}
+						key={tour.tour_id}
 						tourData={tour}
 					/>
 				))}

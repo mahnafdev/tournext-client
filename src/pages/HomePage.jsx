@@ -1,6 +1,7 @@
 import GetApp from "../components/home/GetApp";
 import Hero from "../components/home/Hero";
 import Overview from "../components/home/Overview";
+import TourInsights from "../components/home/TourInsights";
 import TravelEssentials from "../components/home/TravelEssentials";
 
 const HomePage = () => {
@@ -11,6 +12,7 @@ const HomePage = () => {
 		>
 			<Hero />
 			<Overview />
+			<TourInsights />
 			<TravelEssentials />
 			<GetApp />
 		</main>

@@ -68,6 +68,7 @@ const TourCard = ({ tourData }) => {
 				{/* View Details button-link */}
 				<Link
 					to={`/tours/details/${tourId}`}
+					target="_blank"
 					className="self-end"
 				>
 					<button

@@ -51,7 +51,10 @@ const ViewTourDetailsPage = () => {
 			{/* Image Gallery */}
 			<div className="flex flex-wrap justify-center gap-2">
 				{images?.gallery?.map((image, index) => (
-					<div className="w-sm aspect-[4/3] rounded-lg">
+					<div
+						key={index}
+						className="w-sm aspect-[4/3] rounded-lg"
+					>
 						<img
 							src={image}
 							alt={`Gallery Image ${index}`}
@@ -152,7 +155,10 @@ const ViewTourDetailsPage = () => {
 							<p className="font-medium">Services</p>
 							<div className="flex flex-wrap gap-1 font-medium">
 								{services?.general?.map((service) => (
-									<span className="badge badge-neutral h-7 text-[1rem]">
+									<span
+										key={service}
+										className="badge badge-neutral h-7 text-[1rem]"
+									>
 										{service.trim()}
 									</span>
 								))}
@@ -163,7 +169,10 @@ const ViewTourDetailsPage = () => {
 							<p className="font-medium">Meals</p>
 							<div className="flex flex-wrap gap-1 font-medium">
 								{services?.meals?.map((meal) => (
-									<span className="badge badge-neutral h-7 text-[1rem]">
+									<span
+										key={meal}
+										className="badge badge-neutral h-7 text-[1rem]"
+									>
 										{meal[0].toUpperCase()}
 										{meal.slice(1)}
 									</span>
@@ -177,7 +186,10 @@ const ViewTourDetailsPage = () => {
 			<div className="lg:w-6xl mx-12">
 				<div className="join join-vertical bg-base-200 w-full">
 					{itinerary?.map((dayInfo, dayNumber) => (
-						<div className="collapse collapse-arrow join-item border border-accent/20">
+						<div
+							key={dayNumber}
+							className="collapse collapse-arrow join-item border border-accent/20"
+						>
 							{/* Toggle Open-Close state */}
 							<input
 								type="radio"

@@ -100,8 +100,10 @@ const TravelEssentials = () => {
 			}}
 		>
 			<div className="text-center space-y-3">
-				<h2 className="text-4xl font-semibold">Travel Essentials</h2>
-				<p>Gear up for your tours or adventures with the perfect essentials/kits.</p>
+				<h2 className="text-secondary text-4xl font-semibold">Travel Essentials</h2>
+				<p className="text-zinc-200">
+					Gear up for your tours or adventures with the perfect essentials/kits.
+				</p>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{essentials.map((essential) => (
