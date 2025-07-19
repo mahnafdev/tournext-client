@@ -36,7 +36,7 @@ const PostTourForm = () => {
 		// Convert data.tour.price to Number
 		data.tour.price = parseInt(data.tour?.price);
 		// Add extra necessary data
-		data.tour_id = `tn-${crypto.randomUUID().split("-")[0]}`;
+		data.tour_id = `tour-${crypto.randomUUID().split("-")[0]}`;
 		data.posted_at = new Date().toISOString();
 		data.posted_by = user.email;
 		if (data.timing.start_date > data.posted_at) data.tour.status = "upcoming";

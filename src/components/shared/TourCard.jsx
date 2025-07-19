@@ -9,7 +9,7 @@ const TourCard = ({ tourData }) => {
 		.join("-");
 	return (
 		<div className="w-sm h-full bg-base-300 border border-accent/75 rounded-3xl">
-			{/* Thumbnail Image as Overlay Background */}
+			{/* Thumbnail Image */}
 			<img
 				src={images?.thumbnail}
 				alt="Thumbnail Image"

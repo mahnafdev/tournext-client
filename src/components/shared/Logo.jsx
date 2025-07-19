@@ -13,7 +13,7 @@ const Logo = () => {
 					className="size-8 lg:size-10 grayscale group-hover:grayscale-0 transition-[filter]"
 				/>
 				{/* Logo Text */}
-				<h4 className="text-2xl font-bold">TourNext</h4>
+				<h4 className="font-delius text-2xl font-extrabold tracking-wider">TourNext</h4>
 			</div>
 		</Link>
 	);

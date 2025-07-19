@@ -46,7 +46,7 @@ const ViewTourDetailsPage = () => {
 				className="mb-4 text-xl text-center font-medium text-zinc-300"
 				title="Tour ID"
 			>
-				#{tour_tracking_id?.toUpperCase()}
+				#{tour_tracking_id?.split("-")[1].toUpperCase()}
 			</h6>
 			{/* Image Gallery */}
 			<div className="flex flex-wrap justify-center gap-2">

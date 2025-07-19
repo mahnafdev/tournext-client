@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sora:wght@200..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Sora:wght@200..800&display=swap");
 @import "tailwindcss";
 @plugin "daisyui" {
 	themes: sunset;
@@ -29,5 +29,6 @@
 	--color-warning: #eea006;
 }
 @theme {
+	--font-delius: "Delius", cursive;
 	--font-sora: "Sora", Verdana, sans-serif;
 }
