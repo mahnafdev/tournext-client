@@ -8,6 +8,7 @@ import PostTourPage from "../pages/tours/PostTourPage";
 import AboutUsPage from "../pages/AboutUsPage";
 import ViewToursPage from "../pages/tours/ViewToursPage";
 import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
+import ViewStoriesPage from "../pages/stories/ViewStoriesPage";
 
 const router = createBrowserRouter([
 	{
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
 			{
 				path: "/tours/details/:tour_id",
 				Component: ViewTourDetailsPage,
+			},
+			{
+				path: "/stories",
+				Component: ViewStoriesPage,
 			},
 		],
 	},

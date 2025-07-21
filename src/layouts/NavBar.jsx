@@ -94,7 +94,7 @@ const NavBar = () => {
 							</li>
 							<li>
 								<NavLink
-									to="/community"
+									to="/stories"
 									className="rounded-lg py-2"
 								>
 									Community
@@ -178,7 +178,7 @@ const NavBar = () => {
 					{/* 'Community' Link */}
 					<li className="nav-link">
 						<NavLink
-							to="/community"
+							to="/stories"
 							className="px-4 py-2.5 rounded-full hover:bg-primary/20 active:bg-primary/30"
 						>
 							Community
