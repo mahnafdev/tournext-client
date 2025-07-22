@@ -9,6 +9,8 @@ import AboutUsPage from "../pages/AboutUsPage";
 import ViewToursPage from "../pages/tours/ViewToursPage";
 import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
 import ViewStoriesPage from "../pages/stories/ViewStoriesPage";
+import DashboardLayout from "../layouts/DashboardLayout";
+import Jale from "../pages/Jale";
 
 const router = createBrowserRouter([
 	{
@@ -26,10 +28,6 @@ const router = createBrowserRouter([
 			{
 				path: "/tours",
 				Component: ViewToursPage,
-			},
-			{
-				path: "/tours/post",
-				Component: PostTourPage,
 			},
 			{
 				path: "/tours/details/:tour_id",
@@ -52,6 +50,20 @@ const router = createBrowserRouter([
 			{
 				path: "/auth/signup",
 				Component: SignUpPage,
+			},
+		],
+	},
+	{
+		path: "/",
+		Component: DashboardLayout,
+		children: [
+			{
+				path: "/dashboard/tours/post",
+				Component: PostTourPage,
+			},
+			{
+				path: "/dashboard/jale",
+				Component: Jale,
 			},
 		],
 	},
