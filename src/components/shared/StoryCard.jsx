@@ -41,6 +41,7 @@ const StoryCard = ({ storyData }) => {
 				<div className="flex flex-col gap-y-1 mt-4">
 					{gallery.map((image) => (
 						<img
+							key={image}
 							src={image}
 							alt="Gallery Image"
 							className="w-full h-24 hover:h-38 object-cover object-center rounded-md transition-[height] duration-300"

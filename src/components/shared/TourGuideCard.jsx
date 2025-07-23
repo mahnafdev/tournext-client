@@ -30,7 +30,7 @@ const TourGuideCard = ({ tourGuideData }) => {
 				{/* Languages */}
 				<p className="flex items-center gap-x-2 font-medium text-lg">
 					Languages:{" "}
-					<div className="flex flex-wrap gap-1">
+					<span className="flex flex-wrap gap-1">
 						{languages.map((language) => (
 							<span
 								key={language}
@@ -40,7 +40,7 @@ const TourGuideCard = ({ tourGuideData }) => {
 								{language.slice(1)}
 							</span>
 						))}
-					</div>
+					</span>
 				</p>
 				{/* View Details button-link */}
 				<Link

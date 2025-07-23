@@ -61,7 +61,7 @@ const PostTourForm = () => {
 	return (
 		<form
 			id="post-tour-form"
-			className="space-y-8"
+			className="space-y-8 rounded-4xl p-6 -mt-4 bg-base-300"
 			onSubmit={handleSubmit(handlePost)}
 		>
 			{/* Tour-related Information */}

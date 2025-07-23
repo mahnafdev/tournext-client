@@ -10,6 +10,7 @@ import ViewToursPage from "../pages/tours/ViewToursPage";
 import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
 import ViewStoriesPage from "../pages/stories/ViewStoriesPage";
 import DashboardLayout from "../layouts/DashboardLayout";
+import MyBookings from "../pages/dashboard/MyBookings";
 
 const router = createBrowserRouter([
 	{
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
 		path: "/",
 		Component: DashboardLayout,
 		children: [
+			{
+				path: "/dashboard/my-bookings",
+				Component: MyBookings,
+			},
 			{
 				path: "/dashboard/tours/post",
 				Component: PostTourPage,

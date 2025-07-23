@@ -54,7 +54,10 @@ const TourismCountries = () => {
 			</div>
 			<div className="flex flex-wrap justify-center gap-4">
 				{countries.map((country) => (
-					<div className="w-sm h-[28rem] hover:w-md transition-[width] duration-300 rounded-2xl bg-base-300 relative group">
+					<div
+						key={country.name}
+						className="w-sm h-[28rem] hover:w-md transition-[width] duration-300 rounded-2xl bg-base-300 relative group"
+					>
 						<img
 							src={country.thumbnail}
 							alt="Country Image"
