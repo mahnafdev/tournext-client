@@ -40,7 +40,7 @@ const MyBookingsTable = () => {
 				{/* Table Body */}
 				<tbody>
 					{bookings.map((booking) => (
-						<tr>
+						<tr key={booking.booking_id}>
 							<td>#{booking.booking_id.split("-")[1].toUpperCase()}</td>
 							<td>{booking.tour_title}</td>
 							<td>

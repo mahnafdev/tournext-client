@@ -51,11 +51,10 @@ const AboutUsPage = () => {
 			<div className="flex justify-center items-center gap-10 mb-8">
 				{/* Dev Image */}
 				<img
-					src="https://surli.cc/qgcqwj"
+					src="https://i.ibb.co/cc2cdrBF/me1.jpg"
 					alt="Developer"
-					className="size-48 rounded-full object-cover object-center border-2 border-accent mix-blend-lighten"
+					className="size-48 rounded-full object-cover object-center border-2 border-accent"
 				/>
-
 				{/* Dev Info */}
 				<div className="space-y-4">
 					<h3 className="text-3xl font-semibold text-white mb-2">Muhammad Ahnaf</h3>

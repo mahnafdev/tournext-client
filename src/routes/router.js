@@ -11,6 +11,7 @@ import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
 import ViewStoriesPage from "../pages/stories/ViewStoriesPage";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyBookings from "../pages/dashboard/MyBookings";
+import TourGuideApplication from "../pages/dashboard/TourGuideApplication";
 
 const router = createBrowserRouter([
 	{
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard/tours/post",
 				Component: PostTourPage,
+			},
+			{
+				path: "/dashboard/tour-guide-application",
+				Component: TourGuideApplication,
 			},
 		],
 	},

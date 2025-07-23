@@ -1,4 +1,4 @@
-import PostTourForm from "../../components/forms/PostTourForm";
+import PostTourForm from "../../components/dashboard/PostTourForm";
 
 const PostTourPage = () => {
 	return (

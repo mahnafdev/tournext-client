@@ -61,7 +61,7 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<NavLink
-								to="/dashboard/join-tour-guide"
+								to="/dashboard/tour-guide-application"
 								className="rounded-md"
 							>
 								Join as Tour Guide
