@@ -1,9 +1,11 @@
 import { useParams } from "react-router";
 import apiClient from "../../services/apiClient";
 import { useQuery } from "@tanstack/react-query";
-import { TbArrowBigRightLineFilled } from "react-icons/tb";
+import { TbArrowBigRightLineFilled, TbCalendarDue } from "react-icons/tb";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import DatePicker from "react-datepicker";
+import { useState } from "react";
 
 const ViewTourDetailsPage = () => {
 	// Get tour_id from route parameters
@@ -35,6 +37,8 @@ const ViewTourDetailsPage = () => {
 		services,
 		itinerary,
 	} = tourData || {};
+	const [tourDate, setTourDate] = useState(new Date());
+	console.log();
 	// Handle tour booking
 	const handleBooking = (data) => {
 		console.log(data);
@@ -245,6 +249,41 @@ const ViewTourDetailsPage = () => {
 								readOnly={true}
 								{...register("tourist_email")}
 							/>
+						</label>
+					</div>
+					{/* Tour Price */}
+					<div className="validated-input space-y-1">
+						<label className="input w-full text-[1rem] rounded-lg">
+							<span className="label text-zinc-300">Tour Price</span>
+							<input
+								type="number"
+								value={tour?.price}
+								readOnly={true}
+								{...register("tour_price")}
+							/>
+						</label>
+					</div>
+					{/* Tour Date */}
+					<div className="validated-input space-y-1">
+						<label className="input relative w-full text-[1rem] rounded-lg">
+							<DatePicker
+								showIcon
+								icon={
+									<TbCalendarDue className="text-[22px] absolute -top-2 -left-3 cursor-default" />
+								}
+								className="!pr-0 !py-0 !pl-6 !scheme-dark"
+								selected={tourDate}
+								onChange={(date) => setTourDate(date)}
+								name="tour_date"
+								required={true}
+							/>
+						</label>
+					</div>
+					{/* Tour Guide */}
+					<div className="validated-input space-y-1">
+						<label className="select w-full text-[1rem] rounded-lg">
+							<span className="label text-zinc-300">Tour Guide</span>
+							<select></select>
 						</label>
 					</div>
 					{/* Submit Form */}

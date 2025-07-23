@@ -4,22 +4,28 @@ import Logo from "../components/shared/Logo";
 const Sidebar = () => {
 	return (
 		<div className="drawer drawer-open">
+			{/* Sidebar toggle */}
 			<input
 				id="dashboard-sidebar"
 				type="checkbox"
 				className="drawer-toggle"
 			/>
+			{/* Main page content */}
 			<div className="drawer-content p-8">
 				<Outlet />
 			</div>
+			{/* Visual Sidebar */}
 			<div className="drawer-side">
 				<label
 					htmlFor="dashboard-sidebar"
 					aria-label="Close Sidebar"
 					className="drawer-overlay"
 				></label>
+				{/* Sidebar content */}
 				<div className="bg-base-300 h-full w-72 px-6 py-8">
+					{/* Logo */}
 					<Logo />
+					{/* Navigation links */}
 					<ul className="menu w-60 mt-10 px-0 text-[1rem] space-y-1">
 						<li>
 							<NavLink

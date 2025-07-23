@@ -10,7 +10,6 @@ import ViewToursPage from "../pages/tours/ViewToursPage";
 import ViewTourDetailsPage from "../pages/tours/ViewTourDetailsPage";
 import ViewStoriesPage from "../pages/stories/ViewStoriesPage";
 import DashboardLayout from "../layouts/DashboardLayout";
-import Jale from "../pages/Jale";
 
 const router = createBrowserRouter([
 	{
@@ -60,10 +59,6 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard/tours/post",
 				Component: PostTourPage,
-			},
-			{
-				path: "/dashboard/jale",
-				Component: Jale,
 			},
 		],
 	},
