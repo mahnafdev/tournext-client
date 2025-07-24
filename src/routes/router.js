@@ -13,6 +13,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import MyBookings from "../pages/dashboard/MyBookings";
 import TourGuideApplication from "../pages/dashboard/TourGuideApplication";
 import PostStory from "../pages/dashboard/PostStory";
+import Profile from "../pages/dashboard/Profile";
 
 const router = createBrowserRouter([
 	{
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
 		path: "/",
 		Component: DashboardLayout,
 		children: [
+			{
+				path: "/profile",
+				Component: Profile,
+			},
 			{
 				path: "/dashboard/my-bookings",
 				Component: MyBookings,

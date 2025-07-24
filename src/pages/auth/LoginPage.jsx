@@ -20,7 +20,7 @@ const LoginPage = () => {
 				reset();
 				toast.success("Logged in successfully");
 				setTimeout(() => {
-					navigate("/");
+					navigate("/profile");
 				}, 2500);
 			})
 			.catch((error) => {

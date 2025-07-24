@@ -26,7 +26,7 @@ const SignUpPage = () => {
 							reset();
 							toast.success("Account created successfully");
 							setTimeout(() => {
-								navigate("/");
+								navigate("/profile");
 							}, 2500);
 						} else {
 							toast.error(
@@ -91,6 +91,25 @@ const SignUpPage = () => {
 						</label>
 						{errors.picture_url && (
 							<p className="text-error">{errors.picture_url.message}</p>
+						)}
+					</div>
+					<div className="validated-input space-y-1">
+						<label className="input w-full text-[1rem] rounded-lg">
+							<span className="label text-neutral-300">Tagline</span>
+							<input
+								type="text"
+								placeholder="A dialogue by you or you love."
+								{...register("tagline", {
+									required: "Tagline is required",
+									maxLength: {
+										value: 100,
+										message: "Maximum length is 100 characters",
+									},
+								})}
+							/>
+						</label>
+						{errors.tagline && (
+							<p className="text-error">{errors.tagline.message}</p>
 						)}
 					</div>
 					<div className="validated-input space-y-1">
