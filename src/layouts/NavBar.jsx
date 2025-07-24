@@ -226,11 +226,11 @@ const NavBar = () => {
 									<img
 										src={user.photoURL}
 										alt="User Image"
-										className="size-10 border border-accent rounded-full"
+										className="size-10 border border-accent rounded-full object-cover object-center"
 										referrerPolicy="no-referrer"
 									/>
 								) : (
-									<div className="size-10 text-2xl bg-neutral  text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">
+									<div className="size-10 text-2xl bg-neutral text-neutral-content border border-accent rounded-full grid place-items-center cursor-pointer">
 										{user?.displayName?.charAt(0).toUpperCase() || "?"}
 									</div>
 								)}
@@ -248,7 +248,7 @@ const NavBar = () => {
 									</p>
 								</li>
 								<li>
-									<Link to="/dashboard/profile">Profile</Link>
+									<Link to="/profile">Profile</Link>
 								</li>
 								<li>
 									<Link to="/dashboard">Dashboard</Link>

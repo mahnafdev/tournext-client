@@ -224,7 +224,7 @@ const ViewTourDetailsPage = () => {
 						<img
 							src={user?.photoURL}
 							alt="Tourist Image"
-							className="size-12 rounded-full"
+							className="size-12 object-cover object-center rounded-full"
 						/>
 					</div>
 					{/* Tourist Name */}

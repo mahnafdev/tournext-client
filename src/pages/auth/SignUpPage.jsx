@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import GoogleLogin from "../../components/auth/GoogleLogin";
+import apiClient from "../../services/apiClient";
 
 const SignUpPage = () => {
 	const {
@@ -11,17 +12,29 @@ const SignUpPage = () => {
 		reset,
 		formState: { errors },
 	} = useForm();
-	const { signUpWithEmailAndPassword } = useAuth();
+	const { signUpWithEmailAndPassword, updateUserProfile } = useAuth();
 	const navigate = useNavigate();
 	const handleSignUp = (data) => {
-		const { email, password } = data;
+		const { full_name, picture_url, email, password } = data;
+		data.role = "Tourist";
+		data.userId = `user-${crypto.randomUUID().split("-")[0]}`;
 		signUpWithEmailAndPassword(email, password)
 			.then((authCredentials) => {
-				reset();
-				toast.success("Account created successfully");
-				setTimeout(() => {
-					navigate("/");
-				}, 2500);
+				updateUserProfile(full_name, picture_url).then((result) => {
+					apiClient.post("/users", data).then((res) => {
+						if (res.data.insertedId) {
+							reset();
+							toast.success("Account created successfully");
+							setTimeout(() => {
+								navigate("/");
+							}, 2500);
+						} else {
+							toast.error(
+								"Couldn't create & save account. Please try once more.",
+							);
+						}
+					});
+				});
 			})
 			.catch((error) => {
 				console.log(`${error.message} [${error.code}]`);
@@ -67,21 +80,17 @@ const SignUpPage = () => {
 					</div>
 					<div className="validated-input space-y-1">
 						<label className="input w-full text-[1rem] rounded-lg">
-							<span className="label text-neutral-300">Username</span>
+							<span className="label text-neutral-300">Profile Picture</span>
 							<input
-								type="text"
-								placeholder="you_unique"
-								{...register("username", {
-									required: "Username is required",
-									pattern: {
-										value: /^[a-zA-Z0-9]+$/,
-										message: "Username can only contain letters and digits",
-									},
+								type="url"
+								placeholder="Profile Picture URL"
+								{...register("picture_url", {
+									required: "Picture URL is required",
 								})}
 							/>
 						</label>
-						{errors.username && (
-							<p className="text-error">{errors.username.message}</p>
+						{errors.picture_url && (
+							<p className="text-error">{errors.picture_url.message}</p>
 						)}
 					</div>
 					<div className="validated-input space-y-1">
