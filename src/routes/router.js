@@ -14,6 +14,7 @@ import MyBookings from "../pages/dashboard/MyBookings";
 import TourGuideApplication from "../pages/dashboard/TourGuideApplication";
 import PostStory from "../pages/dashboard/PostStory";
 import Profile from "../pages/dashboard/Profile";
+import ManageUsers from "../pages/dashboard/ManageUsers";
 
 const router = createBrowserRouter([
 	{
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
 			{
 				path: "/profile",
 				Component: Profile,
+			},
+			{
+				path: "/dashboard/users",
+				Component: ManageUsers,
 			},
 			{
 				path: "/dashboard/my-bookings",
