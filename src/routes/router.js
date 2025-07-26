@@ -16,6 +16,7 @@ import PostStory from "../pages/dashboard/PostStory";
 import Profile from "../pages/dashboard/Profile";
 import ManageUsers from "../pages/dashboard/ManageUsers";
 import ManageCandidates from "../pages/dashboard/ManageCandidates";
+import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 
 const router = createBrowserRouter([
 	{
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
 			{
 				path: "/auth/signup",
 				Component: SignUpPage,
+			},
+			{
+				path: "/auth/reset-password",
+				Component: ResetPasswordPage,
 			},
 		],
 	},

@@ -74,6 +74,14 @@ const LoginPage = () => {
 							<p className="text-error">{errors.password.message}</p>
 						)}
 					</div>
+					<p className="text-neutral-300 font-medium">
+						<Link
+							to="/auth/reset-password"
+							className="link link-hover"
+						>
+							Forgot Password?
+						</Link>
+					</p>
 					<button
 						type="submit"
 						className="btn btn-lg btn-accent btn-block rounded-lg"
@@ -83,7 +91,7 @@ const LoginPage = () => {
 				</form>
 				<div className="divider text-zinc-400">OR</div>
 				<GoogleLogin />
-				<p className="text-neutral-600">
+				<p className="text-neutral-400">
 					Don't have any account?{" "}
 					<Link
 						to="/auth/signup"

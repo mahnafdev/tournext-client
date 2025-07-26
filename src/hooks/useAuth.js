@@ -4,6 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	GoogleAuthProvider,
 	onAuthStateChanged,
+	sendPasswordResetEmail,
 	signInWithEmailAndPassword,
 	signInWithPopup,
 	signOut,
@@ -26,6 +27,9 @@ const useAuth = () => {
 	const updateUserProfile = (displayName, photoURL) => {
 		return updateProfile(auth.currentUser, { displayName, photoURL });
 	};
+	const resetPassword = (email) => {
+		return sendPasswordResetEmail(auth, email);
+	};
 	const logout = () => {
 		return signOut(auth);
 	};
@@ -45,6 +49,7 @@ const useAuth = () => {
 		loginWithEmailAndPassword,
 		loginWithGoogle,
 		updateUserProfile,
+		resetPassword,
 		logout,
 	};
 };

@@ -170,7 +170,7 @@ const SignUpPage = () => {
 				</form>
 				<div className="divider text-zinc-400">OR</div>
 				<GoogleLogin />
-				<p className="text-neutral-600">
+				<p className="text-neutral-400">
 					Already have any account?{" "}
 					<Link
 						to="/auth/login"
