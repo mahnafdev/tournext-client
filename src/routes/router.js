@@ -15,6 +15,7 @@ import TourGuideApplication from "../pages/dashboard/TourGuideApplication";
 import PostStory from "../pages/dashboard/PostStory";
 import Profile from "../pages/dashboard/Profile";
 import ManageUsers from "../pages/dashboard/ManageUsers";
+import ManageCandidates from "../pages/dashboard/ManageCandidates";
 
 const router = createBrowserRouter([
 	{
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard/tour-guide-application",
 				Component: TourGuideApplication,
+			},
+			{
+				path: "/dashboard/candidates",
+				Component: ManageCandidates,
 			},
 		],
 	},

@@ -49,8 +49,8 @@ const TourGuideApplicationForm = () => {
 						{...register("reason", {
 							required: "This information is required",
 							maxLength: {
-								value: 300,
-								message: "Maximum length is 300 characters",
+								value: 150,
+								message: "Maximum length is 150 characters",
 							},
 						})}
 					/>
