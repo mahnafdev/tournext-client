@@ -18,6 +18,14 @@ const ViewTourDetailsPage = () => {
 			return res.data;
 		},
 	});
+	// Fetch tour guides
+	const { data: tourGuides } = useQuery({
+		queryKey: ["tour-guides"],
+		queryFn: async () => {
+			const res = await apiClient.get("/tour-guides?status=accepted");
+			return res.data;
+		},
+	});
 	// Import necessary states & functions from React-Hook-Form
 	const {
 		register,
@@ -38,7 +46,6 @@ const ViewTourDetailsPage = () => {
 		itinerary,
 	} = tourData || {};
 	const [tourDate, setTourDate] = useState(new Date());
-	console.log();
 	// Handle tour booking
 	const handleBooking = (data) => {
 		console.log(data);
@@ -210,6 +217,8 @@ const ViewTourDetailsPage = () => {
 					))}
 				</div>
 			</div>
+			{/* Tour Guides */}
+
 			{/* Book Tour */}
 			<div className="space-y-6">
 				<h2 className="text-4xl font-semibold text-center text-primary">Book Tour</h2>

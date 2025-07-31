@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router";
+import apiClient from "../../services/apiClient";
 
 const GoogleLogin = () => {
 	const { loginWithGoogle } = useAuth();
@@ -8,10 +9,32 @@ const GoogleLogin = () => {
 	const handleLogin = () => {
 		loginWithGoogle()
 			.then((authCredentials) => {
-				toast.success("Logged in successfully");
-				setTimeout(() => {
-					navigate("/");
-				}, 2500);
+				const { displayName, photoURL, email } = authCredentials.user;
+				const cleanedData = {
+					user_id: `user-${crypto.randomUUID().split("-")[0]}`,
+					full_name: displayName,
+					picture: photoURL,
+					email,
+					role: "Tourist",
+					tagline: "",
+				};
+				apiClient.post("/users", cleanedData).then((res) => {
+					if (res.data.insertedId) {
+						toast.success("Account created successfully");
+						setTimeout(() => {
+							navigate("/profile");
+						}, 2500);
+					} else if (!res.data.inserted) {
+						toast.success("Logged in successfully");
+						setTimeout(() => {
+							navigate("/profile");
+						}, 2500);
+					} else {
+						toast.error(
+							"Couldn't create or log in to account. Please try once more.",
+						);
+					}
+				});
 			})
 			.catch((error) => {
 				console.log(`${error.message} [${error.code}]`);

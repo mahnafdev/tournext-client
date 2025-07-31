@@ -1,4 +1,8 @@
 import { useForm } from "react-hook-form";
+import useAuth from "../../hooks/useAuth";
+import apiClient from "../../services/apiClient";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const TourGuideApplicationForm = () => {
 	// Import necessary functions and states from react-hook-form
@@ -8,8 +12,31 @@ const TourGuideApplicationForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+	// Currently authenticated user
+	const { user } = useAuth();
+	// Hook to navigate to a route
+	const navigate = useNavigate();
 	const handleSubmitApplication = (data) => {
-		console.log(data);
+		const cleanedData = {
+			...data,
+			guide_id: `guide-${crypto.randomUUID().split("-")[0]}`,
+			status: "pending",
+			candidate_name: user?.displayName,
+			candidate_email: user?.email,
+		};
+		apiClient
+			.post("/tour-guides", cleanedData)
+			.then((res) => {
+				reset();
+				toast.success("Your application is submitted successfully");
+				setTimeout(() => {
+					navigate("/profile");
+				}, 2500);
+			})
+			.catch((error) => {
+				console.log(`${error.response?.statusText}: ${error.message}`);
+				toast.error("We couldn't submit the application. Please try once more.");
+			});
 	};
 	return (
 		<form
@@ -46,7 +73,7 @@ const TourGuideApplicationForm = () => {
 						className="textarea mt-1 w-full resize-none text-[1rem] rounded-lg"
 						rows={2}
 						placeholder="Why do you want to be a Tour Guide?"
-						{...register("reason", {
+						{...register("joining_reason", {
 							required: "This information is required",
 							maxLength: {
 								value: 150,
@@ -56,7 +83,9 @@ const TourGuideApplicationForm = () => {
 					/>
 				</label>
 				{/* Field-Error */}
-				{errors?.reason && <p className="text-error">{errors.reason?.message}</p>}
+				{errors?.joining_reason && (
+					<p className="text-error">{errors.joining_reason?.message}</p>
+				)}
 			</div>
 			{/* Resume */}
 			<div className="space-y-1">

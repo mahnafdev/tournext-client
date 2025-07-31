@@ -10,7 +10,7 @@ const ManageCandidates = () => {
 			<h2 className="text-4xl text-primary font-semibold my-0">Manage Candidates</h2>
 			{/* A horizontal divider */}
 			<div className="divider" />
-			<h3 className="text-[1.75rem] font-medium">Manage tour guide applications</h3>
+			<h3 className="text-[1.75rem] font-medium">Manage tour guide candidates</h3>
 			{/* The candidates table, Ctrl+Click on 'CandidatesTable' to see the full component */}
 			<CandidatesTable />
 		</main>

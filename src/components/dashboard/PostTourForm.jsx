@@ -7,6 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import apiClient from "../../services/apiClient";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const PostTourForm = () => {
 	// Import necessary functions and states from react-hook-form
@@ -19,6 +20,9 @@ const PostTourForm = () => {
 	const [startDate, setStartDate] = useState(new Date());
 	// Itineraries state
 	const [itineraries, setItineraries] = useState([{ title: "", description: "" }]);
+	// Images state
+	const [thumbnailImage, setThumbnailImage] = useState("");
+	const [galleryImages, setGalleryImages] = useState([]);
 	// Add Itinerary Day
 	const addItineraryDay = () => {
 		setItineraries((prev) => [...prev, { title: "", description: "" }]);
@@ -27,6 +31,35 @@ const PostTourForm = () => {
 	const { user } = useAuth();
 	// Hook to navigate to a route
 	const navigate = useNavigate();
+	const handleSingleImageUpload = async (e) => {
+		const image = e.target.files[0];
+		const formData = new FormData();
+		formData.append("image", image);
+		const uploadURL = `https://api.imgbb.com/1/upload?key=${
+			import.meta.env.VITE_IMGBB_API_KEY
+		}`;
+		const res = await axios.post(uploadURL, formData);
+		setThumbnailImage(res.data.data.url);
+	};
+	const handleMultipleImageUpload = async (e) => {
+		const images = Array.from(e.target.files);
+		if (images.length > 3) {
+			toast.error("You can upload only up to 3 images");
+			e.target.value = "";
+			return;
+		}
+		const uploadURL = `https://api.imgbb.com/1/upload?key=${
+			import.meta.env.VITE_IMGBB_API_KEY
+		}`;
+		const formDataArray = images.map((image) => {
+			const formData = new FormData();
+			formData.append("image", image);
+			return axios.post(uploadURL, formData);
+		});
+		const responses = await Promise.all(formDataArray);
+		const imageUrls = responses.map((res) => res.data.data.url);
+		setGalleryImages(imageUrls);
+	};
 	// Handle Tour Posting
 	const handlePost = (data) => {
 		// Convert data.services.general to Array
@@ -39,6 +72,7 @@ const PostTourForm = () => {
 		data.tour_id = `tour-${crypto.randomUUID().split("-")[0]}`;
 		data.posted_at = new Date().toISOString();
 		data.posted_by = user.email;
+		data.images = { thumbnail: thumbnailImage, gallery: galleryImages };
 		if (data.timing.start_date > data.posted_at) data.tour.status = "upcoming";
 		else if (data.timing.start_date < data.posted_at) data.tour.status = "completed";
 		else data.tour.status = "ongoing";
@@ -130,6 +164,31 @@ const PostTourForm = () => {
 				</div>
 			</div>
 			{/* Images */}
+			<div className="grid grid-cols-3 gap-8">
+				{/* Thumbnail */}
+				<div className="flex flex-col gap-y-1">
+					<span className="text-lg text-zinc-300 font-medium">Thumbnail</span>
+					<input
+						type="file"
+						className="file-input w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+						accept=".png,.jpg,.webp,.svg,.psd"
+						onChange={handleSingleImageUpload}
+						required
+					/>
+				</div>
+				{/* Gallery */}
+				<div className="flex flex-col gap-y-1">
+					<span className="text-lg text-zinc-300 font-medium">Gallery</span>
+					<input
+						type="file"
+						className="file-input w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+						accept=".png,.jpg,.webp,.svg,.psd"
+						onChange={handleMultipleImageUpload}
+						multiple={true}
+						required
+					/>
+				</div>
+			</div>
 			{/* Short Summary */}
 			<div className="space-y-1">
 				<label>

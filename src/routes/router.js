@@ -17,6 +17,9 @@ import Profile from "../pages/dashboard/Profile";
 import ManageUsers from "../pages/dashboard/ManageUsers";
 import ManageCandidates from "../pages/dashboard/ManageCandidates";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
+import ManageStories from "../pages/dashboard/ManageStories";
+import MyAssignedTours from "../pages/dashboard/MyAssignedTours";
+import Dashboard from "../pages/dashboard/Dashboard";
 
 const router = createBrowserRouter([
 	{
@@ -68,6 +71,10 @@ const router = createBrowserRouter([
 		Component: DashboardLayout,
 		children: [
 			{
+				path: "/dashboard",
+				Component: Dashboard,
+			},
+			{
 				path: "/profile",
 				Component: Profile,
 			},
@@ -76,24 +83,32 @@ const router = createBrowserRouter([
 				Component: ManageUsers,
 			},
 			{
-				path: "/dashboard/my-bookings",
-				Component: MyBookings,
-			},
-			{
 				path: "/dashboard/tours/post",
 				Component: PostTourPage,
+			},
+			{
+				path: "/dashboard/tours/assigned",
+				Component: MyAssignedTours,
+			},
+			{
+				path: "/dashboard/my-bookings",
+				Component: MyBookings,
 			},
 			{
 				path: "/dashboard/stories/post",
 				Component: PostStory,
 			},
 			{
-				path: "/dashboard/tour-guide-application",
-				Component: TourGuideApplication,
+				path: "/dashboard/stories",
+				Component: ManageStories,
 			},
 			{
 				path: "/dashboard/candidates",
 				Component: ManageCandidates,
+			},
+			{
+				path: "/dashboard/tour-guide-application",
+				Component: TourGuideApplication,
 			},
 		],
 	},

@@ -73,7 +73,7 @@ const Profile = () => {
 					/>
 					{/* Profile picture */}
 					<img
-						src={userData?.picture_url}
+						src={userData?.picture}
 						alt="Picture"
 						className="size-36 object-cover object-center rounded-full -mt-18"
 					/>

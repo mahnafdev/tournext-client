@@ -15,13 +15,19 @@ const SignUpPage = () => {
 	const { signUpWithEmailAndPassword, updateUserProfile } = useAuth();
 	const navigate = useNavigate();
 	const handleSignUp = (data) => {
-		const { full_name, picture_url, email, password } = data;
-		data.role = "Tourist";
-		data.userId = `user-${crypto.randomUUID().split("-")[0]}`;
+		const { full_name, picture_url, email, password, tagline } = data;
+		const cleanedData = {
+			user_id: `user-${crypto.randomUUID().split("-")[0]}`,
+			full_name,
+			picture: picture_url,
+			email,
+			role: "Tourist",
+			tagline,
+		};
 		signUpWithEmailAndPassword(email, password)
 			.then((authCredentials) => {
 				updateUserProfile(full_name, picture_url).then((result) => {
-					apiClient.post("/users", data).then((res) => {
+					apiClient.post("/users", cleanedData).then((res) => {
 						if (res.data.insertedId) {
 							reset();
 							toast.success("Account created successfully");

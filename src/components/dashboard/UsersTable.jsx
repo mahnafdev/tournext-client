@@ -17,16 +17,16 @@ const UsersTable = ({ users }) => {
 				<tbody>
 					{users?.map((user) => {
 						const {
-							userId,
-							picture_url: picture,
+							user_id,
+							picture,
 							full_name: fullName,
 							role,
 							email,
 							tagline,
 						} = user;
 						return (
-							<tr key={userId}>
-								<td>#{userId.split("-")[1].toUpperCase()}</td>
+							<tr key={user_id}>
+								<td>#{user_id?.split("-")[1].toUpperCase()}</td>
 								<td>
 									<img
 										src={picture}
