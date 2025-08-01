@@ -20,6 +20,7 @@ import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import ManageStories from "../pages/dashboard/ManageStories";
 import MyAssignedTours from "../pages/dashboard/MyAssignedTours";
 import Dashboard from "../pages/dashboard/Dashboard";
+import TourGuideProfilePage from "../pages/TourGuideProfilePage";
 
 const router = createBrowserRouter([
 	{
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
 			{
 				path: "/stories",
 				Component: ViewStoriesPage,
+			},
+			{
+				path: "/tour-guides/details/:guide_id",
+				Component: TourGuideProfilePage,
 			},
 		],
 	},

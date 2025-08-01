@@ -21,8 +21,9 @@ const TourGuideApplicationForm = () => {
 			...data,
 			guide_id: `guide-${crypto.randomUUID().split("-")[0]}`,
 			status: "pending",
-			candidate_name: user?.displayName,
-			candidate_email: user?.email,
+			guide_name: user?.displayName,
+			guide_picture: user?.photoURL,
+			guide_email: user?.email,
 		};
 		apiClient
 			.post("/tour-guides", cleanedData)

@@ -78,8 +78,8 @@ const CandidatesTable = () => {
 							guide_id,
 							application_title: applicationTitle,
 							joining_reason: joiningReason,
-							candidate_name: candidateName,
-							candidate_email: candidateEmail,
+							guide_name: candidateName,
+							guide_email: candidateEmail,
 							resume,
 							country,
 						} = candidate;

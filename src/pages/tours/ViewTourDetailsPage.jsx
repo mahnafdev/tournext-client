@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import apiClient from "../../services/apiClient";
 import { useQuery } from "@tanstack/react-query";
 import { TbArrowBigRightLineFilled, TbCalendarDue } from "react-icons/tb";
@@ -218,7 +218,39 @@ const ViewTourDetailsPage = () => {
 				</div>
 			</div>
 			{/* Tour Guides */}
-
+			<div className="lg:w-4xl mx-12 flex flex-col gap-y-2">
+				{tourGuides?.map((guide) => {
+					const { guide_id, guide_name, country } = guide;
+					return (
+						<div
+							key={guide_id}
+							className="flex items-center gap-1 bg-base-300 border border-accent/50 rounded-lg p-4"
+						>
+							<h6 className="text-lg font-medium">{guide_name}</h6>
+							<div className="border border-dashed border-neutral w-12 rotate-90"></div>
+							<span>
+								Guides in{" "}
+								<span className="badge badge-accent badge-outline px-2 ml-1 font-medium">
+									{country[0].toUpperCase()}
+									{country.slice(1)}
+								</span>
+							</span>
+							<div className="border border-dashed border-neutral w-12 rotate-90"></div>
+							<Link
+								to={`/tour-guides/details/${guide_id}`}
+								target="_blank"
+							>
+								<button
+									type="button"
+									className="btn btn-accent text-[1rem] rounded-md"
+								>
+									View Profile
+								</button>
+							</Link>
+						</div>
+					);
+				})}
+			</div>
 			{/* Book Tour */}
 			<div className="space-y-6">
 				<h2 className="text-4xl font-semibold text-center text-primary">Book Tour</h2>
