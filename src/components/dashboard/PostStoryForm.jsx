@@ -23,7 +23,6 @@ const PostStoryForm = () => {
 		data.poster_email = user?.email;
 		data.poster_name = user?.displayName;
 		data.images = { thumbnail: thumbnailImage, gallery: galleryImages };
-		console.log(data);
 		apiClient
 			.post("/stories", data)
 			.then((res) => {

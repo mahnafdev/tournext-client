@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const ViewTourDetailsPage = () => {
 	// Get tour_id from route parameters
@@ -48,7 +49,33 @@ const ViewTourDetailsPage = () => {
 	const [tourDate, setTourDate] = useState(new Date());
 	// Handle tour booking
 	const handleBooking = (data) => {
-		console.log(data);
+		// Add extra necessary data and correcting existing (user-given) data
+		data.tourist_picture = user?.photoURL;
+		data.tourist_name = user?.displayName;
+		data.tourist_email = user?.email;
+		data.tour_name = tour?.title;
+		data.tour_guide.email = tourGuides.find(
+			(guide) => guide.guide_name === data.tour_guide.name,
+		).guide_email;
+		data.tour_date = tourDate.toISOString();
+		if (!data.tour_price) data.tour_price = tour?.price;
+		data.status = "Pending";
+		data.booking_id = `booking-${crypto.randomUUID().split("-")[0]}`;
+		// Save booking to database
+		apiClient
+			.post("/bookings", data)
+			.then((res) => {
+				reset();
+				toast.success("You booked this tour successfully");
+				toast("View your booking in My-Bookings page of Dashboard", {
+					icon: "ℹ️",
+					duration: 4000,
+				});
+			})
+			.catch((error) => {
+				console.log(`${error.response?.statusText}: ${error.message}`);
+				toast.error("We couldn't book the tour. Please try once more.");
+			});
 	};
 	return (
 		<main className="mx-12 my-6 space-y-12">
@@ -259,39 +286,6 @@ const ViewTourDetailsPage = () => {
 					className="w-xl mx-auto space-y-3"
 					onSubmit={handleSubmit(handleBooking)}
 				>
-					{/* Tourist Image */}
-					<div className="flex items-center gap-2">
-						<p className="text-lg text-zinc-300">Tourist Image:</p>
-						<img
-							src={user?.photoURL}
-							alt="Tourist Image"
-							className="size-12 object-cover object-center rounded-full"
-						/>
-					</div>
-					{/* Tourist Name */}
-					<div className="validated-input space-y-1">
-						<label className="input w-full text-[1rem] rounded-lg">
-							<span className="label text-zinc-300">Tourist Name</span>
-							<input
-								type="text"
-								value={user?.displayName}
-								readOnly={true}
-								{...register("tourist_name")}
-							/>
-						</label>
-					</div>
-					{/* Tourist Email */}
-					<div className="validated-input space-y-1">
-						<label className="input w-full text-[1rem] rounded-lg">
-							<span className="label text-zinc-300">Tourist Email</span>
-							<input
-								type="email"
-								value={user?.email}
-								readOnly={true}
-								{...register("tourist_email")}
-							/>
-						</label>
-					</div>
 					{/* Tour Price */}
 					<div className="validated-input space-y-1">
 						<label className="input w-full text-[1rem] rounded-lg">
@@ -324,8 +318,27 @@ const ViewTourDetailsPage = () => {
 					<div className="validated-input space-y-1">
 						<label className="select w-full text-[1rem] rounded-lg">
 							<span className="label text-zinc-300">Tour Guide</span>
-							<select></select>
+							<select
+								defaultValue=""
+								{...register("tour_guide.name", {
+									required: "This information is required",
+								})}
+							>
+								<option value="">Select Tour Guide</option>
+								{tourGuides?.map((guide) => (
+									<option
+										key={guide.guide_id}
+										value={guide.guide_name}
+									>
+										{guide.guide_name}
+									</option>
+								))}
+							</select>
 						</label>
+						{/* Field-Error */}
+						{errors?.tour_guide?.name && (
+							<p className="text-error">{errors.tour_guide?.name.message}</p>
+						)}
 					</div>
 					{/* Submit Form */}
 					<div className="text-center">
