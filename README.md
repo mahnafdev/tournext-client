@@ -8,9 +8,9 @@
 
 ---
 
-Admin Email: `admin@tournext.com`
+### 📄 About The Project
 
-Admin Password: `Dattebayo#07`
+TourNext is a tourism management application. Tourists can book tours, pay to their booked tours, post or edit or delete their tourism story. Tour Guides can publish tours, accept or cancel a tourist of a tour, manage their tour guiding story. Admins have all permissions including accepting or rejecting a tourist as a tour guide.
 
 ---
 
@@ -51,3 +51,56 @@ Admin Password: `Dattebayo#07`
         -   Admin will view all the users of the app
     -   Manage Candidates
         -   Admin can view, accept or reject all the candidates (Tour Guide applications) of the app
+
+### ⚙️ Technologies
+
+-   React.js
+-   Express.js
+-   MongoDB
+-   Tailwind CSS
+-   Daisy UI
+-   Firebase (Authentication + Hosting)
+-   Stripe
+
+### 📦 Tools & Packages
+
+-   Axios
+-   TanStack Query
+-   Motion
+-   React-Router
+-   React-Hook-Form
+-   React-Hot-Toast
+-   React Icons
+-   React-Confetti
+-   React-Datepicker
+-   React-Responsive-Carousel
+-   React-Simple-Typewriter
+-   SweetAlert 2
+
+## 👨🏻‍💻 Run the Project on Your Computer
+
+1. Clone the project on your folder by running the following command on your terminal:
+
+    ```bash
+    $ git clone https://github.com/mahnafdev/tournext-client.git
+    ```
+
+2. Install the dependencies by running this command:
+
+    ```bash
+    $ npm i
+    ```
+
+3. Send an email to this email address requesting for the environment variables of the project:
+
+    ```
+    mahnafdev@gmail.com
+    ```
+
+4. Run the project locally:
+
+    ```bash
+    $ npm run dev
+    ```
+
+**🎉 Done, you've successfully runned this project in your computer.**
