@@ -21,6 +21,7 @@ import ManageStories from "../pages/dashboard/ManageStories";
 import MyAssignedTours from "../pages/dashboard/MyAssignedTours";
 import Dashboard from "../pages/dashboard/Dashboard";
 import TourGuideProfilePage from "../pages/TourGuideProfilePage";
+import UpdateStory from "../pages/dashboard/UpdateStory";
 
 const router = createBrowserRouter([
 	{
@@ -106,6 +107,10 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard/stories",
 				Component: ManageStories,
+			},
+			{
+				path: "/dashboard/stories/update/:story_id",
+				Component: UpdateStory,
 			},
 			{
 				path: "/dashboard/candidates",

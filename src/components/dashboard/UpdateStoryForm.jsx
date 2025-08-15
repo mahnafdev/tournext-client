@@ -1,11 +1,6 @@
 import { useForm } from "react-hook-form";
-import apiClient from "../../services/apiClient";
-import useAuth from "../../hooks/useAuth";
-import toast from "react-hot-toast";
-import axios from "axios";
-import { useState } from "react";
 
-const PostStoryForm = () => {
+const UpdateStoryForm = ({ storyData: story }) => {
 	// Import necessary functions and states from react-hook-form
 	const {
 		register,
@@ -13,28 +8,11 @@ const PostStoryForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const [thumbnailImage, setThumbnailImage] = useState("");
-	const [galleryImages, setGalleryImages] = useState([]);
-	// Currently logged-in user
-	const { user } = useAuth();
-	// Handle posting
-	const handlePost = (data) => {
-		data.story_id = `story-${crypto.randomUUID().split("-")[0]}`;
-		data.posted_at = new Date().toISOString();
-		data.poster_email = user?.email;
-		data.poster_name = user?.displayName;
-		data.images = { thumbnail: thumbnailImage, gallery: galleryImages };
-		apiClient
-			.post("/stories", data)
-			.then((res) => {
-				reset();
-				toast.success("Your story is posted successfully");
-			})
-			.catch((error) => {
-				console.log(`${error.response?.statusText}: ${error.message}`);
-				toast.error("We couldn't post the story. Please try once more.");
-			});
+	// Handle update
+	const handleUpdate = (data) => {
+		console.log(data);
 	};
+	// Handle uploading single image
 	const handleSingleImageUpload = async (e) => {
 		const image = e.target.files[0];
 		const formData = new FormData();
@@ -45,6 +23,7 @@ const PostStoryForm = () => {
 		const res = await axios.post(uploadURL, formData);
 		setThumbnailImage(res.data.data.url);
 	};
+	// Handle uploading multiple images
 	const handleMultipleImageUpload = async (e) => {
 		const images = Array.from(e.target.files);
 		if (images.length > 3) {
@@ -66,9 +45,9 @@ const PostStoryForm = () => {
 	};
 	return (
 		<form
-			id="post-story-form"
+			id="update-story-form"
 			className="space-y-4 rounded-4xl p-6 -mt-4 bg-base-300"
-			onSubmit={handleSubmit(handlePost)}
+			onSubmit={handleSubmit(handleUpdate)}
 		>
 			{/* Story Title */}
 			<div className="space-y-1">
@@ -139,12 +118,12 @@ const PostStoryForm = () => {
 			{/* Submission button */}
 			<button
 				type="submit"
-				className="btn btn-lg w-60 px-2 btn-accent rounded-lg"
+				className="btn btn-lg w-64 px-2 btn-accent rounded-lg"
 			>
-				Proceed to Post Story
+				Proceed to Update Story
 			</button>
 		</form>
 	);
 };
 
-export default PostStoryForm;
+export default UpdateStoryForm;

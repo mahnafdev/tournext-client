@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import apiClient from "../services/apiClient";
 import { TbLink, TbMail, TbStar, TbWorldCheck } from "react-icons/tb";
+import StoryCard from "../components/shared/StoryCard";
 
 const TourGuideProfilePage = () => {
 	// Get guide_id from route parameters
@@ -14,9 +15,18 @@ const TourGuideProfilePage = () => {
 			return res.data[0];
 		},
 	});
+	// Fetch guide's stories data
+	const { data: storiesData } = useQuery({
+		queryKey: ["tour-guide-stories", guideData?.guide_email],
+		queryFn: async () => {
+			const res = await apiClient.get(`/stories?poster=${guideData?.guide_email}`);
+			return res.data;
+		},
+	});
 	return (
-		<main className="m-12">
-			<div className="max-w-lg mx-auto">
+		<main className="m-12 space-y-6">
+			{/* Profile Card */}
+			<div className="max-w-lg mx-auto bg-base-200 border border-zinc-950 rounded-3xl">
 				<div className="flex flex-col">
 					{/* Banner image */}
 					<img
@@ -28,13 +38,15 @@ const TourGuideProfilePage = () => {
 					<img
 						src={guideData?.guide_picture}
 						alt="Picture"
-						className="size-32 ml-4 object-cover object-center rounded-full -mt-16"
+						className="size-36 ml-4 object-cover object-center rounded-full -mt-18"
 					/>
 				</div>
 				{/* Guide Name */}
-				<h2 className="text-2xl font-semibold text-end">{guideData?.guide_name}</h2>
+				<h2 className="mr-4 -mt-4 text-2xl font-semibold text-primary text-end">
+					{guideData?.guide_name}
+				</h2>
 				{/* Other info */}
-				<div className="mt-6 space-y-2">
+				<div className="mx-4 my-6 space-y-2">
 					{/* Email */}
 					<p className="flex items-center gap-x-2 mx-auto text-zinc-200">
 						<TbMail
@@ -70,6 +82,21 @@ const TourGuideProfilePage = () => {
 					<p className="flex gap-x-2 mx-auto text-zinc-200">
 						<span className="font-medium">Goal:</span> {guideData?.joining_reason}
 					</p>
+				</div>
+			</div>
+			{/* Stories */}
+			<div className="space-y-6">
+				{/* Section Header */}
+				<h2 className="text-4xl font-semibold text-secondary text-center">Stories</h2>
+				{/* Stories Container */}
+				<div className="flex flex-wrap justify-center gap-4">
+					{storiesData?.map((story) => (
+						<StoryCard
+							key={story.story_id}
+							storyData={story}
+							isGuideStory={true}
+						/>
+					))}
 				</div>
 			</div>
 		</main>

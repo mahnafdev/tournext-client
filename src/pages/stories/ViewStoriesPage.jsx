@@ -1,7 +1,9 @@
+import { useQuery } from "@tanstack/react-query";
 import StoryCard from "../../components/shared/StoryCard";
+import apiClient from "../../services/apiClient";
 
 const ViewStoriesPage = () => {
-	const stories = [
+	const dummyStories = [
 		{
 			images: {
 				thumbnail:
@@ -133,6 +135,14 @@ const ViewStoriesPage = () => {
 				"It rained nonstop but we danced through puddles and shared street food under one umbrella. Their happiness made that rainy day a sunshine memory!",
 		},
 	];
+	// Fetch stories data
+	const { data: storiesData } = useQuery({
+		queryKey: ["all-stories"],
+		queryFn: async () => {
+			const res = await apiClient.get("/stories");
+			return res.data;
+		},
+	});
 	return (
 		<main className="mx-4 my-10 md:m-12 space-y-10">
 			<div className="space-y-2">
@@ -146,9 +156,9 @@ const ViewStoriesPage = () => {
 				</p>
 			</div>
 			<div className="flex flex-wrap justify-center gap-4">
-				{stories.map((story, index) => (
+				{storiesData?.map((story) => (
 					<StoryCard
-						key={index}
+						key={story.story_id}
 						storyData={story}
 					/>
 				))}

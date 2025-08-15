@@ -7,7 +7,7 @@ const OurTours = () => {
 	const { data: tours } = useQuery({
 		queryKey: ["random-tours"],
 		queryFn: async () => {
-			const res = await apiClient.get("/tours?random=4");
+			const res = await apiClient.get("/tours?random=3");
 			return res.data;
 		},
 	});

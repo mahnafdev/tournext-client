@@ -1,4 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import StoryCard from "../shared/StoryCard";
+import apiClient from "../../services/apiClient";
 
 const TopStories = () => {
 	const stories = [
@@ -55,6 +57,14 @@ const TopStories = () => {
 				"As the sun dipped, silence wrapped around us like poetry. That boat ride across the calm river gave me a peace I hadn't felt in months. Magical escape!",
 		},
 	];
+	// Fetch random stories data
+	const { data: storiesData } = useQuery({
+		queryKey: ["random-stories"],
+		queryFn: async () => {
+			const res = await apiClient.get("/stories?random=4");
+			return res.data;
+		},
+	});
 	return (
 		<section className="space-y-10">
 			<div className="space-y-2">
@@ -68,9 +78,9 @@ const TopStories = () => {
 				</p>
 			</div>
 			<div className="flex flex-wrap justify-center gap-6">
-				{stories.map((story, index) => (
+				{storiesData?.map((story) => (
 					<StoryCard
-						key={index}
+						key={story.story_id}
 						storyData={story}
 					/>
 				))}

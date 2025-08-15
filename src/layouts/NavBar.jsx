@@ -111,17 +111,6 @@ const NavBar = () => {
 									Login
 								</button>
 							</Link>
-							<Link
-								to="/sponsorship"
-								className="nav-button"
-							>
-								<button
-									type="button"
-									className="btn btn-lg btn-primary rounded-lg"
-								>
-									Be A Sponsor
-								</button>
-							</Link>
 							<a
 								href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
 								target="_blank"
@@ -204,18 +193,6 @@ const NavBar = () => {
 							</button>
 						</Link>
 					)}
-					{/* 'Be A Sponsor' Button */}
-					<Link
-						to="/sponsorship"
-						className="nav-button max-sm:hidden"
-					>
-						<button
-							type="button"
-							className="btn lg:btn-lg btn-primary rounded-lg"
-						>
-							Be A Sponsor
-						</button>
-					</Link>
 					{user && (
 						<div className="dropdown dropdown-end">
 							<button
