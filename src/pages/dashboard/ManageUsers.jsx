@@ -81,86 +81,39 @@ const ManageUsers = () => {
 			<h2 className="text-4xl text-primary font-semibold my-0">Manage Users</h2>
 			{/* A horizontal divider */}
 			<div className="divider" />
-			<h3 className="text-[1.75rem] font-medium">Manage application users</h3>
-			{/* Searching & Filtering */}
-			<div className="flex justify-between items-center flex-wrap gap-3 -mt-2 mb-6">
-				{/* Filtering */}
-				<div className="space-y-1">
-					<Select
-						options={roleFilterOptions}
-						value={roleFilterOptions.find((option) => option.value === roleFilter)}
-						className="w-48"
-						onChange={(e) => setRoleFilter(e.value)}
-						// Dark theme
-						theme={(theme) => ({
-							...theme,
-							borderRadius: 0,
-							colors: {
-								...theme.colors,
-								primary: "#00A8E8",
-								neutral80: "#f4f4f5",
-							},
-						})}
-						styles={{
-							control: (baseStyles) => ({
-								...baseStyles,
-								backgroundColor: "#091319",
-								borderColor: "#27272a",
-								borderRadius: "0.4rem",
-								padding: "0.125rem 0",
-							}),
-							menu: (baseStyles) => ({
-								...baseStyles,
-								zIndex: 20,
-								backgroundColor: "#091319",
-								borderRadius: "0.7rem",
-							}),
-							option: (baseStyles) => ({
-								...baseStyles,
-								marginBlock: "0.7rem",
-								paddingBlock: "0.3rem",
-								":hover": { backgroundColor: "#00A8E8" },
-							}),
-						}}
-					/>
-				</div>
-				{/* Searching */}
-				<div className="space-y-1">
-					<label className="input w-88 bg-base-300 text-[1rem] rounded-md">
-						<span className="label text-zinc-300 font-medium">Search</span>
-						<input
-							type="text"
-							placeholder="User Name or Email"
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-						/>
-					</label>
-				</div>
-			</div>
+			{/* Bento Grid like Grid layout with analytics and data */}
 			<div className="grid grid-cols-2 gap-4">
 				{/* Chart */}
-				<div className="p-8 bg-base-300 border border-primary/30 rounded-3xl grid place-items-center">
-					<CustomPieChart
-						width={350}
-						height={350}
-						data={pieChartData}
-						dataKey="Users"
-						circleX="50%"
-						circleY="50%"
-						outerRadius={150}
-					/>
+				<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
+						Users based-on Role
+					</h4>
+					<div className="self-center">
+						<CustomPieChart
+							width={350}
+							height={350}
+							data={pieChartData}
+							dataKey="Users"
+							circleX="50%"
+							circleY="50%"
+							outerRadius={150}
+						/>
+					</div>
 				</div>
 				{/* Card Stats */}
 				<div>
-					<div className="w-80 p-8 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
-						<h3 className="text-3xl font-semibold text-zinc-400 uppercase">
+					<div className="w-80 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							Total Users
-						</h3>
+						</h4>
 						<h2 className="text-4xl font-bold text-primary">{usersCount}</h2>
 					</div>
 				</div>
 				{/* Table */}
-				<UsersTable users={users} />
+				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">Users</h4>
+					<UsersTable users={users} />
+				</div>
 			</div>
 		</main>
 	);

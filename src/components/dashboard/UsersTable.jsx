@@ -1,6 +1,6 @@
 const UsersTable = ({ users }) => {
 	return (
-		<div className="col-span-2 overflow-x-auto bg-base-300 border border-primary/30 rounded-2xl">
+		<div className="overflow-x-auto bg-base-300 border border-primary/30 rounded-2xl">
 			<table className="table">
 				{/* Table Head */}
 				<thead className="text-zinc-400 text-[1rem]">
