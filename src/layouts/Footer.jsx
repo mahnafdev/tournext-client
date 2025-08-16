@@ -13,7 +13,7 @@ const Footer = () => {
 	return (
 		<motion.footer
 			id="footer"
-			className="mx-4 md:mx-12 mt-24 mb-4 bg-neutral text-neutral-content p-6 lg:px-24 lg:py-20 rounded-2xl flex flex-col items-center gap-y-8"
+			className="mx-4 md:mx-12 mt-24 mb-4 bg-base-300 text-neutral p-6 lg:px-24 lg:py-20 rounded-4xl flex flex-col items-center gap-y-8"
 			initial={{
 				y: 150,
 				opacity: 0,
@@ -46,7 +46,7 @@ const Footer = () => {
 				</p>
 			</div>
 			{/* A horizontal divider */}
-			<div className="w-full border border-dashed border-accent"></div>
+			<div className="w-full border border-dashed border-accent/70"></div>
 			{/* Useful links */}
 			<div className="lg:w-3/5 space-y-4">
 				{/* Legal links */}
@@ -121,7 +121,7 @@ const Footer = () => {
 				</div>
 			</div>
 			{/* A horizontal divider */}
-			<div className="w-full border border-dashed border-accent"></div>
+			<div className="w-full border border-dashed border-accent/70"></div>
 			{/* Developer Social links */}
 			<div
 				id="footer-socials"

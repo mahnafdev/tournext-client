@@ -8,7 +8,7 @@ const TourCard = ({ tourData }) => {
 		.map((word) => word[0].toUpperCase() + word.slice(1))
 		.join("-");
 	return (
-		<div className="w-sm h-full bg-base-300 border border-accent/75 rounded-3xl">
+		<div className="max-w-[26rem] h-full bg-base-300 border border-accent/75 rounded-3xl">
 			{/* Thumbnail Image */}
 			<img
 				src={images?.thumbnail}
