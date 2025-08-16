@@ -69,14 +69,6 @@ const Sidebar = () => {
 						</li>
 						<li>
 							<NavLink
-								to="/dashboard/tours/assigned"
-								className="rounded-md"
-							>
-								My Assigned Tours
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
 								to="/dashboard/tours/post"
 								className="rounded-md"
 							>

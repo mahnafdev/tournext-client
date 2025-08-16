@@ -18,7 +18,6 @@ import ManageUsers from "../pages/dashboard/ManageUsers";
 import ManageCandidates from "../pages/dashboard/ManageCandidates";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import ManageStories from "../pages/dashboard/ManageStories";
-import MyAssignedTours from "../pages/dashboard/MyAssignedTours";
 import Dashboard from "../pages/dashboard/Dashboard";
 import TourGuideProfilePage from "../pages/TourGuideProfilePage";
 import UpdateStory from "../pages/dashboard/UpdateStory";
@@ -91,10 +90,6 @@ const router = createBrowserRouter([
 			{
 				path: "/dashboard/tours/post",
 				Component: PostTourPage,
-			},
-			{
-				path: "/dashboard/tours/assigned",
-				Component: MyAssignedTours,
 			},
 			{
 				path: "/dashboard/my-bookings",

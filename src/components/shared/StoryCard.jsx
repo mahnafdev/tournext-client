@@ -1,8 +1,12 @@
 import { Link } from "react-router";
+import apiClient from "../../services/apiClient";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const StoryCard = ({ storyData, isMyStory = false, isGuideStory = false }) => {
 	// Destructure values from data
 	const {
+		_id,
 		story_id,
 		poster_name,
 		posted_at,
@@ -24,6 +28,31 @@ const StoryCard = ({ storyData, isMyStory = false, isGuideStory = false }) => {
 	// This story card's background
 	const chosenStoryBackground =
 		storyBackgrounds[Math.floor(Math.random() * storyBackgrounds.length)];
+	// Handle story delete
+	const handleDelete = () => {
+		Swal.fire({
+			theme: "dark",
+			title: "Confirm Deletion",
+			text: "Are you sure you want to delete the story? It's irreversible.",
+			confirmButtonText: "Yes, Delete",
+			confirmButtonColor: "var(--color-success)",
+			showCancelButton: true,
+			cancelButtonText: "No, Cancel",
+			cancelButtonColor: "var(--color-error)",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				apiClient
+					.delete(`/stories/${_id}`)
+					.then((res) => {
+						toast.success("Story deleted successfully");
+					})
+					.catch((error) => {
+						console.log(`${error.response?.statusText}: ${error.message}`);
+						toast.error("We couldn't delete the story. Please try once more.");
+					});
+			}
+		});
+	};
 	return (
 		<div className="space-y-1.5 hover:scale-103 transition-transform duration-200">
 			{/* Poster Name & Post Date */}
@@ -88,6 +117,7 @@ const StoryCard = ({ storyData, isMyStory = false, isGuideStory = false }) => {
 					<button
 						type="button"
 						className="btn btn-accent btn-outline text-[1rem] px-3 h-8 rounded-md"
+						onClick={handleDelete}
 					>
 						Delete
 					</button>

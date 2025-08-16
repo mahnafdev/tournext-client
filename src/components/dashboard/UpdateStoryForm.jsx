@@ -56,6 +56,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 					<input
 						type="text"
 						placeholder="e.g: Switzerland Forest Adventure"
+						defaultValue={story?.title}
 						{...register("title", {
 							required: "This information is required",
 							maxLength: {
@@ -76,6 +77,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 						className="textarea mt-1 w-full resize-none text-[1rem] rounded-lg"
 						rows={2}
 						placeholder="Describe the story moment or main theme."
+						defaultValue={story?.description}
 						{...register("description", {
 							required: "This information is required",
 							maxLength: {
@@ -96,6 +98,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 				<input
 					type="file"
 					className="file-input w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+					defaultValue={story?.images.thumbnail}
 					accept=".png,.jpg,.webp,.svg,.psd"
 					onChange={handleSingleImageUpload}
 					required
@@ -107,6 +110,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 				<input
 					type="file"
 					className="file-input w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+					defaultValue={story?.images.gallery}
 					accept=".png,.jpg,.webp,.svg,.psd"
 					onChange={handleMultipleImageUpload}
 					multiple={true}

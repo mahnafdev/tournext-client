@@ -14,7 +14,7 @@ const ManageStoriesGrid = () => {
 		},
 	});
 	return (
-		<div className="flex flex-wrap gap-4">
+		<div className="grid grid-cols-5 place-self-start gap-4">
 			{storiesData?.map((story) => (
 				<StoryCard
 					key={story.story_id}

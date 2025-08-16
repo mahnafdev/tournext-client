@@ -112,7 +112,7 @@ const NavBar = () => {
 								</button>
 							</Link>
 							<a
-								href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
+								href="https://github.com/mahnafdev/tournext-client?ref=tournext"
 								target="_blank"
 								className="nav-button"
 							>
@@ -242,7 +242,7 @@ const NavBar = () => {
 					)}
 					{/* 'GitHub Repository' Button */}
 					<a
-						href="https://github.com/ninjaquasar/tournext-client?ref=tournext"
+						href="https://github.com/mahnafdev/tournext-client?ref=tournext"
 						target="_blank"
 						className="nav-button"
 					>
