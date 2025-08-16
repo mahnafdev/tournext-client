@@ -83,7 +83,7 @@ const ManageUsers = () => {
 			<div className="divider" />
 			{/* Bento Grid like Grid layout with analytics and data */}
 			<div className="grid grid-cols-2 gap-4">
-				{/* Chart */}
+				{/* Users based-on Role */}
 				<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 						Users based-on Role
@@ -102,6 +102,7 @@ const ManageUsers = () => {
 				</div>
 				{/* Card Stats */}
 				<div>
+					{/* Total Users */}
 					<div className="w-80 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							Total Users
@@ -109,9 +110,68 @@ const ManageUsers = () => {
 						<h2 className="text-4xl font-bold text-primary">{usersCount}</h2>
 					</div>
 				</div>
-				{/* Table */}
+				{/* Users */}
 				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">Users</h4>
+					{/* Searching & Filtering */}
+					<div className="flex justify-between items-center flex-wrap gap-3 -mt-2 mb-6">
+						{/* Filtering */}
+						<div className="space-y-1">
+							<Select
+								options={roleFilterOptions}
+								value={roleFilterOptions.find(
+									(option) => option.value === roleFilter,
+								)}
+								className="w-48"
+								onChange={(e) => setRoleFilter(e.value)}
+								// Dark theme
+								theme={(theme) => ({
+									...theme,
+									borderRadius: 0,
+									colors: {
+										...theme.colors,
+										primary: "#33bfbf99",
+										neutral80: "#f4f4f5",
+									},
+								})}
+								styles={{
+									control: (baseStyles) => ({
+										...baseStyles,
+										backgroundColor: "#091319",
+										borderColor: "#008f5f80",
+										borderRadius: "0.4rem",
+										padding: "0.125rem 0",
+										":hover": { borderColor: "#008f5f" },
+									}),
+									menu: (baseStyles) => ({
+										...baseStyles,
+										zIndex: 20,
+										backgroundColor: "#091319",
+										borderRadius: "0.7rem",
+									}),
+									option: (baseStyles) => ({
+										...baseStyles,
+										marginBlock: "0.7rem",
+										paddingBlock: "0.3rem",
+										":hover": { backgroundColor: "#008f5f80" },
+									}),
+								}}
+							/>
+						</div>
+						{/* Searching */}
+						<div className="space-y-1">
+							<label className="input w-88 bg-base-300 border-accent/50 text-[1rem] rounded-md">
+								<span className="label text-zinc-300 font-medium">Search</span>
+								<input
+									type="text"
+									placeholder="User Name or Email"
+									value={searchQuery}
+									onChange={(e) => setSearchQuery(e.target.value)}
+								/>
+							</label>
+						</div>
+					</div>
+					{/* Table */}
 					<UsersTable users={users} />
 				</div>
 			</div>

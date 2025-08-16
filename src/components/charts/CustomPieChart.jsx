@@ -24,6 +24,7 @@ const CustomPieChart = ({
 				fill="var(--color-primary)"
 				fillOpacity="75%"
 				strokeOpacity="50%"
+				animationDuration={1200}
 				label={{
 					fontSize: "large",
 				}}

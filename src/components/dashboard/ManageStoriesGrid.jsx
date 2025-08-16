@@ -1,18 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../hooks/useAuth";
-import apiClient from "../../services/apiClient";
 import StoryCard from "../shared/StoryCard";
 
-const ManageStoriesGrid = () => {
-	const { user } = useAuth();
-	// Fetch stories data
-	const { data: storiesData } = useQuery({
-		queryKey: ["stories", user?.email],
-		queryFn: async () => {
-			const res = await apiClient.get(`/stories?poster=${user?.email}`);
-			return res.data;
-		},
-	});
+const ManageStoriesGrid = ({ storiesData }) => {
 	return (
 		<div className="grid grid-cols-5 place-self-start gap-4">
 			{storiesData?.map((story) => (
