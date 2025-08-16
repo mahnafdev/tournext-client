@@ -30,13 +30,12 @@ const CustomBarChart = ({
 					borderRadius: "0.5rem",
 				}}
 			/>
-			{/* Legend text at the most bottom */}
-			<Legend />
 			{/* Each bar */}
 			<Bar
 				dataKey={barDataKey}
 				fill="var(--color-primary)"
-				fillOpacity="50"
+				fillOpacity="75%"
+				strokeOpacity="50%"
 			/>
 		</BarChart>
 	);

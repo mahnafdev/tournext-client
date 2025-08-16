@@ -4,6 +4,7 @@ import apiClient from "../../services/apiClient";
 import Select from "react-select";
 import { useState } from "react";
 import CustomBarChart from "../../components/charts/CustomBarChart";
+import CustomPieChart from "../../components/charts/CustomPieChart";
 
 const ManageUsers = () => {
 	// Filtering & Searching states
@@ -56,18 +57,18 @@ const ManageUsers = () => {
 			return res.data.length;
 		},
 	});
-	// Bar Chart data
-	const barChartData = [
+	// Pie Chart data
+	const pieChartData = [
 		{
-			title: "Admin",
+			name: "Admin",
 			Users: adminCount,
 		},
 		{
-			title: "Tourist",
+			name: "Tourist",
 			Users: touristCount,
 		},
 		{
-			title: "Tour Guide",
+			name: "Tour Guide",
 			Users: tourGuideCount,
 		},
 	];
@@ -138,13 +139,15 @@ const ManageUsers = () => {
 			</div>
 			<div className="grid grid-cols-2 gap-4">
 				{/* Chart */}
-				<div className="p-8 bg-base-300 border border-primary/30 rounded-2xl grid place-items-center">
-					<CustomBarChart
-						width={500}
-						height={400}
-						data={barChartData}
-						xAxisDataKey="title"
-						barDataKey="Users"
+				<div className="p-8 bg-base-300 border border-primary/30 rounded-3xl grid place-items-center">
+					<CustomPieChart
+						width={350}
+						height={350}
+						data={pieChartData}
+						dataKey="Users"
+						circleX="50%"
+						circleY="50%"
+						outerRadius={150}
 					/>
 				</div>
 				{/* Card Stats */}
