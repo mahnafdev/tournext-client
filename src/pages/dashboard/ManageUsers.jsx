@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import apiClient from "../../services/apiClient";
 import Select from "react-select";
 import { useState } from "react";
+import CustomBarChart from "../../components/charts/CustomBarChart";
 
 const ManageUsers = () => {
 	// Filtering & Searching states
@@ -25,6 +26,50 @@ const ManageUsers = () => {
 		{ value: "Tourist", label: "Tourist" },
 		{ value: "Tour Guide", label: "Tour Guide" },
 		{ value: "Admin", label: "Admin" },
+	];
+	// Count of users
+	const { data: usersCount = 0 } = useQuery({
+		queryKey: ["users", "all"],
+		queryFn: async () => {
+			const res = await apiClient.get("/users");
+			return res.data.length;
+		},
+	});
+	const { data: adminCount = 0 } = useQuery({
+		queryKey: ["users", "admin"],
+		queryFn: async () => {
+			const res = await apiClient.get("/users?role=Admin");
+			return res.data.length;
+		},
+	});
+	const { data: tourGuideCount = 0 } = useQuery({
+		queryKey: ["users", "tour-guide"],
+		queryFn: async () => {
+			const res = await apiClient.get("/users?role=Tour+Guide");
+			return res.data.length;
+		},
+	});
+	const { data: touristCount = 0 } = useQuery({
+		queryKey: ["users", "tourist"],
+		queryFn: async () => {
+			const res = await apiClient.get("/users?role=Tourist");
+			return res.data.length;
+		},
+	});
+	// Bar Chart data
+	const barChartData = [
+		{
+			title: "Admin",
+			Users: adminCount,
+		},
+		{
+			title: "Tourist",
+			Users: touristCount,
+		},
+		{
+			title: "Tour Guide",
+			Users: tourGuideCount,
+		},
 	];
 	return (
 		<main
@@ -91,8 +136,29 @@ const ManageUsers = () => {
 					</label>
 				</div>
 			</div>
-			{/* The users table, Ctrl+Click on 'UsersTable' to see the full component */}
-			<UsersTable users={users} />
+			<div className="grid grid-cols-2 gap-4">
+				{/* Chart */}
+				<div className="p-8 bg-base-300 border border-primary/30 rounded-2xl grid place-items-center">
+					<CustomBarChart
+						width={500}
+						height={400}
+						data={barChartData}
+						xAxisDataKey="title"
+						barDataKey="Users"
+					/>
+				</div>
+				{/* Card Stats */}
+				<div>
+					<div className="w-80 p-8 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+						<h3 className="text-3xl font-semibold text-zinc-400 uppercase">
+							Total Users
+						</h3>
+						<h2 className="text-4xl font-bold text-primary">{usersCount}</h2>
+					</div>
+				</div>
+				{/* Table */}
+				<UsersTable users={users} />
+			</div>
 		</main>
 	);
 };

@@ -99,28 +99,28 @@ const Hero = () => {
 						<img
 							src={Mountains}
 							alt="Mountain"
-							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl  md:rounded-4xl"
+							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl  md:rounded-3xl"
 						/>
 					</div>
 					<div className="hero-slide">
 						<img
 							src={ForestRiver}
 							alt="Forest River"
-							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-4xl"
+							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-3xl"
 						/>
 					</div>
 					<div className="hero-slide">
 						<img
 							src={SeaBeach}
 							alt="Sea Beach"
-							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-4xl"
+							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-3xl"
 						/>
 					</div>
 					<div className="hero-slide">
 						<img
 							src={River}
 							alt="River"
-							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-4xl"
+							className="hero-slide-image max-h-[65vh] object-cover object-center rounded-2xl md:rounded-3xl"
 						/>
 					</div>
 				</Carousel>
