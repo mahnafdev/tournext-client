@@ -74,14 +74,6 @@ const LoginPage = () => {
 							<p className="text-error">{errors.password.message}</p>
 						)}
 					</div>
-					<p className="text-neutral-300 font-medium">
-						<Link
-							to="/auth/reset-password"
-							className="link link-hover"
-						>
-							Forgot Password?
-						</Link>
-					</p>
 					<button
 						type="submit"
 						className="btn btn-lg btn-accent btn-block rounded-lg"

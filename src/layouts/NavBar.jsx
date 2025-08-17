@@ -62,7 +62,7 @@ const NavBar = () => {
 					</button>
 					{/* Menu Bar */}
 					<div
-						className={`bg-base-300/96 w-64 h-[40rem] md:h-[20rem] rounded-r-2xl space-y-2 border border-primary ${
+						className={`bg-base-300/96 w-64 rounded-r-2xl space-y-2 border border-primary ${
 							isShowMenu ? "absolute top-14 -left-8" : "hidden"
 						}`}
 					>
@@ -101,33 +101,6 @@ const NavBar = () => {
 								</NavLink>
 							</li>
 						</ul>
-						{/* Menu Buttons */}
-						<div className="md:hidden flex flex-col gap-y-2 ml-4">
-							<Link to="/auth/login">
-								<button
-									type="button"
-									className="btn btn-lg btn-outline btn-neutral rounded-lg"
-								>
-									Login
-								</button>
-							</Link>
-							<a
-								href="https://github.com/mahnafdev/tournext-client?ref=tournext"
-								target="_blank"
-								className="nav-button"
-							>
-								<button
-									type="button"
-									className="btn px-2 bg-neutral rounded-lg"
-									title="GitHub Repository"
-								>
-									<TbBrandGithub
-										size={24}
-										className="text-neutral-content"
-									/>
-								</button>
-							</a>
-						</div>
 					</div>
 				</div>
 				{/* Logo */}
@@ -244,7 +217,7 @@ const NavBar = () => {
 					<a
 						href="https://github.com/mahnafdev/tournext-client?ref=tournext"
 						target="_blank"
-						className="nav-button"
+						className="nav-button max-md:ml-1"
 					>
 						<button
 							type="button"

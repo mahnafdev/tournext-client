@@ -41,7 +41,7 @@ const TourismCountries = () => {
 		},
 	];
 	return (
-		<section className="space-y-10 bg-neutral/5 p-16 rounded-4xl">
+		<section className="space-y-10 bg-neutral/5 p-8 lg:p-16 rounded-4xl">
 			<div className="space-y-2">
 				{/* Heading */}
 				<h2 className="text-4xl font-semibold text-secondary text-center">
@@ -56,14 +56,14 @@ const TourismCountries = () => {
 				{countries.map((country) => (
 					<div
 						key={country.name}
-						className="w-sm h-[28rem] hover:w-md transition-[width] duration-300 rounded-2xl bg-base-300 relative group"
+						className="w-sm h-96 lg:h-[28rem] hover:w-md transition-[width] duration-300 rounded-2xl bg-base-300 relative group"
 					>
 						<img
 							src={country.thumbnail}
 							alt="Country Image"
-							className="w-full h-full object-cover object-center hover:opacity-50 rounded-2xl transition-opacity duration-300"
+							className="w-full h-full object-cover object-center max-lg:opacity-70 lg:hover:opacity-50 rounded-2xl transition-opacity duration-300"
 						/>
-						<div className="absolute bottom-8 left-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+						<div className="absolute bottom-8 left-5 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300">
 							<h3 className="text-3xl font-semibold">{country.name}</h3>
 						</div>
 					</div>

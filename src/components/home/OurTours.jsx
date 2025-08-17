@@ -12,7 +12,7 @@ const OurTours = () => {
 		},
 	});
 	return (
-		<div className="flex flex-wrap justify-center gap-6">
+		<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-self-center gap-4 md:gap-6">
 			{tours?.map((tour) => (
 				<TourCard
 					key={tour.tour_id}

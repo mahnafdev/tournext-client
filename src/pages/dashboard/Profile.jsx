@@ -99,7 +99,7 @@ const Profile = () => {
 					</div>
 				</div>
 				{/* Edit Profile modal */}
-				<EditProfile profileData={userData} />
+				{/* <EditProfile profileData={userData} /> */}
 			</div>
 		</main>
 	);

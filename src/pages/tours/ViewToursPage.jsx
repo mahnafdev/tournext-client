@@ -42,8 +42,8 @@ const ViewToursPage = () => {
 					<option value="-1">Descending</option>
 				</select>
 			</label>
-			{/* Display Tours in Masonry Grid layout */}
-			<div className="grid grid-cols-4 place-self-center gap-6">
+			{/* Display Tours in Grid layout */}
+			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 place-self-center gap-6">
 				{tours?.map((tour) => (
 					<TourCard
 						key={tour.tour_id}

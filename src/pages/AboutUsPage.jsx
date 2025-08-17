@@ -4,6 +4,7 @@ import {
 	TbBrandFacebook,
 	TbBrandYoutube,
 } from "react-icons/tb";
+import ProjectTimelineIcon from "../assets/projects-timeline-icon-pattern.png";
 
 const AboutUsPage = () => {
 	// Dev Other Projects Data
@@ -42,27 +43,26 @@ const AboutUsPage = () => {
 			{/* Section heading */}
 			<div className="text-center space-y-2 mb-16">
 				<h2 className="text-4xl font-semibold text-primary">About Developer</h2>
-				<p className="text-lg text-zinc-300">
+				<p className="md:text-lg text-zinc-300">
 					Behind every great project, there is a next-level mind. Meet the builder of
 					TourNext.
 				</p>
 			</div>
 			{/* Core information */}
-			<div className="flex justify-center items-center gap-10 mb-8">
+			<div className="flex flex-col lg:flex-row justify-center items-center max-lg:text-center gap-4 lg:gap-10 mb-8">
 				{/* Dev Image */}
 				<img
 					src="https://i.ibb.co/cc2cdrBF/me1.jpg"
 					alt="Developer"
-					className="size-48 rounded-full object-cover object-center border-2 border-accent"
+					className="size-40 rounded-full object-cover object-center border-2 border-accent"
 				/>
 				{/* Dev Info */}
 				<div className="space-y-4">
 					<h3 className="text-3xl font-semibold text-white mb-2">Muhammad Ahnaf</h3>
 					<p className="text-zinc-300">
-						Professionally passionate in Software Development with love for
-						TailwindCSS, RESTful APIs, Firebase, Next.js, Data Structures &
-						Algorithms. Loves Reverse Engineering (a technique where Analyzation
-						plays the core part) and building next-level services like TourNext.
+						Professionally passionate in Web Development. Loves Reverse Engineering
+						(a technique where Analyzation plays the core game) and building
+						next-level services like TourNext.
 					</p>
 				</div>
 			</div>
@@ -140,20 +140,20 @@ const AboutUsPage = () => {
 			{/* Other Projects Timeline */}
 			<div className="space-y-4">
 				<h4 className="text-2xl font-semibold text-primary">Other Projects</h4>
-				<ul className="timeline timeline-vertical gap-y-3">
+				<ul className="timeline max-md:timeline-compact timeline-vertical gap-y-3">
 					{projects.map((project) => (
 						<li
 							key={project.name}
-							className="gap-x-6"
+							className="gap-x-4 lg:gap-x-6"
 						>
 							<img
-								src="https://surli.cc/sdwwur"
-								className="timeline-middle size-20 object-cover object-center rounded-full border-2 border-accent"
+								src={ProjectTimelineIcon}
+								className="timeline-middle size-20 object-cover rounded-full border-2 border-accent"
 							/>
 							<div className="timeline-end w-full">
 								<p className="text-lg font-light">{project.date}</p>
 								<h6 className="text-xl font-medium">{project.name}</h6>
-								<p className="mt-2 text-sm text-zinc-300">
+								<p className="mt-2 text-sm text-zinc-300 text-balance">
 									{project.description}
 								</p>
 								<a

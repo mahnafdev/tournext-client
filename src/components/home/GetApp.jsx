@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 const GetApp = () => {
 	return (
 		<motion.section
-			className="p-16 bg-primary/40 rounded-4xl flex items-center justify-between"
+			className="p-4 lg:p-16 bg-primary/40 rounded-4xl flex flex-col lg:flex-row items-center justify-between max-lg:gap-8"
 			initial={{
 				scale: 0,
 				opacity: 0,
@@ -41,9 +41,11 @@ const GetApp = () => {
 				/>
 			</div>
 			{/* Core Information */}
-			<div className="space-y-6 max-w-1/2 text-right">
+			<div className="space-y-6 lg:max-w-1/2 text-center lg:text-right">
 				{/* Title */}
-				<h1 className="text-5xl font-semibold">Travel with our App</h1>
+				<h1 className="text-4xl lg:text-5xl font-semibold text-balance">
+					Travel with our App
+				</h1>
 				{/* Sub-text */}
 				<p className="text-balance text-zinc-200">
 					Book your tours anywhere (while outside or sitting or lying on bed) and

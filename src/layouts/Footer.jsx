@@ -91,7 +91,7 @@ const Footer = () => {
 						{/* 'Community' link */}
 						<li>
 							<Link
-								to="/community"
+								to="/stories"
 								className="hover:text-accent hover:underline hover:underline-offset-2 transition-colors"
 							>
 								Community

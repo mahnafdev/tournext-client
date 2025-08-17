@@ -77,7 +77,7 @@ const TopStories = () => {
 					Stories from our collaborative community members
 				</p>
 			</div>
-			<div className="flex flex-wrap justify-center gap-6">
+			<div className="flex flex-wrap justify-center gap-4 lg:gap-6">
 				{storiesData?.map((story) => (
 					<StoryCard
 						key={story.story_id}

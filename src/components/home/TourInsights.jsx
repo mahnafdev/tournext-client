@@ -24,7 +24,7 @@ const TourInsights = () => {
 					Tourism & Travel Guide
 				</h2>
 				{/* Section Subtext */}
-				<p className="text-zinc-200">
+				<p className="text-zinc-200 text-balance">
 					Meet with some of our next-level tours and professional tour guides –
 					totally travel insights.
 				</p>
@@ -39,7 +39,7 @@ const TourInsights = () => {
 					aria-label="Our Tours"
 					defaultChecked
 				/>
-				<div className="tab-content bg-base-100 py-12 text-start">
+				<div className="tab-content bg-base-100 max-md:px-4 py-12 text-start">
 					<OurTours />
 				</div>
 				{/* 'Our Tour Guides' Tab */}
@@ -49,7 +49,7 @@ const TourInsights = () => {
 					className="tab text-[1rem] font-medium !text-zinc-300"
 					aria-label="Our Tour Guides"
 				/>
-				<div className="tab-content bg-base-100 py-12 text-start">
+				<div className="tab-content bg-base-100 max-md:px-4 py-12 text-start">
 					<OurTourGuides />
 				</div>
 			</div>

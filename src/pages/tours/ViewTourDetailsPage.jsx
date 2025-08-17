@@ -78,7 +78,7 @@ const ViewTourDetailsPage = () => {
 			});
 	};
 	return (
-		<main className="mx-12 my-6 space-y-12">
+		<main className="mx-4 lg:mx-12 my-6 space-y-12">
 			{/* Tour ID */}
 			<h6
 				className="mb-4 text-xl text-center font-medium text-zinc-300"
@@ -91,21 +91,21 @@ const ViewTourDetailsPage = () => {
 				{images?.gallery?.map((image, index) => (
 					<div
 						key={index}
-						className="w-sm aspect-[4/3] rounded-lg"
+						className="w-sm aspect-[4/3] rounded-2xl lg:rounded-lg"
 					>
 						<img
 							src={image}
 							alt={`Gallery Image ${index}`}
-							className="w-full h-full object-cover object-center rounded-lg hover:scale-103 transition-transform duration-200"
+							className="w-full h-full object-cover object-center rounded-2xl lg:rounded-lg hover:scale-103 transition-transform duration-200"
 						/>
 					</div>
 				))}
 			</div>
 			{/* Other Information */}
-			<div className="flex items-center justify-center gap-12">
+			<div className="flex flex-col xl:flex-row items-center justify-center gap-6 xl:gap-12">
 				{/* Tour ID */}
 				{/* Thumbnail Image */}
-				<div className="w-xl aspect-[3/2] rounded-2xl">
+				<div className="md:w-xl aspect-[3/2] rounded-2xl">
 					<img
 						src={images?.thumbnail}
 						alt="Thumbnail Image"
@@ -115,11 +115,13 @@ const ViewTourDetailsPage = () => {
 				{/* Core Information */}
 				<div className="space-y-4">
 					{/* Title */}
-					<h2 className="text-4xl font-semibold text-primary">{tour?.title}</h2>
+					<h2 className="text-3xl lg:text-4xl font-semibold text-primary max-lg:text-center">
+						{tour?.title}
+					</h2>
 					{/* Summary */}
 					<p className="text-lg text-zinc-200 max-w-5xl">{tour?.summary}</p>
 					{/* Key Information Points */}
-					<div className="max-w-5/6 flex flex-wrap items-center gap-x-8 gap-y-2 font-medium">
+					<div className="lg:max-w-5/6 flex flex-wrap items-center gap-x-6 lg:gap-x-8 gap-y-2 font-medium">
 						{/* Tour Type */}
 						<div className="flex flex-col gap-y-1">
 							<span>Tour Type</span>
@@ -165,7 +167,7 @@ const ViewTourDetailsPage = () => {
 						</div>
 					</div>
 					{/* Departure & Destination */}
-					<div className="flex flex-wrap items-center gap-2 font-medium">
+					<div className="flex flex-col lg:flex-row flex-wrap lg:items-center gap-2 font-medium">
 						{/* Departure */}
 						<span className="flex flex-col gap-y-1">
 							<span className="text-sm">Departure</span>
@@ -176,7 +178,7 @@ const ViewTourDetailsPage = () => {
 						{/* Divider */}
 						<TbArrowBigRightLineFilled
 							size={24}
-							className="fill-neutral"
+							className="fill-neutral max-md:rotate-90"
 						/>
 						{/* Destination */}
 						<span className="flex flex-col gap-y-1">
@@ -221,7 +223,7 @@ const ViewTourDetailsPage = () => {
 				</div>
 			</div>
 			{/* Itinerary */}
-			<div className="lg:w-6xl mx-12">
+			<div className="lg:w-6xl lg:mx-12">
 				<div className="join join-vertical bg-base-200 w-full">
 					{itinerary?.map((dayInfo, dayNumber) => (
 						<div
@@ -235,9 +237,10 @@ const ViewTourDetailsPage = () => {
 							/>
 							<div className="collapse-title flex items-center gap-x-3 text-lg font-medium">
 								<span className="badge badge-outline badge-accent h-7 text-[1rem]">
-									Day {dayNumber + 1}
+									<span>Day </span>
+									{dayNumber + 1}
 								</span>
-								<h6>{dayInfo.title}</h6>
+								<h6 className="line-clamp-1 w-fit">{dayInfo.title}</h6>
 							</div>
 							<div className="collapse-content">{dayInfo.description}</div>
 						</div>
@@ -245,17 +248,19 @@ const ViewTourDetailsPage = () => {
 				</div>
 			</div>
 			{/* Tour Guides */}
-			<div className="lg:w-4xl mx-12 flex flex-col gap-y-2">
+			<div className="lg:w-4xl lg:mx-12 flex flex-col gap-y-2">
 				{tourGuides?.map((guide) => {
 					const { guide_id, guide_name, country } = guide;
 					return (
 						<div
 							key={guide_id}
-							className="flex items-center gap-1 bg-base-300 border border-accent/50 rounded-lg p-4"
+							className="flex items-center max-lg:justify-between gap-1 bg-base-300 border border-accent/50 rounded-lg p-3 md:p-4"
 						>
-							<h6 className="text-lg font-medium">{guide_name}</h6>
-							<div className="border border-dashed border-neutral w-12 rotate-90"></div>
-							<span>
+							<h6 className="w-fit md:text-lg font-medium line-clamp-1">
+								{guide_name}
+							</h6>
+							<div className="max-lg:hidden border border-dashed border-neutral w-12 rotate-90"></div>
+							<span className="max-lg:hidden">
 								Guides in{" "}
 								<span className="badge badge-accent badge-outline px-2 ml-1 font-medium">
 									{country[0].toUpperCase()}
@@ -283,7 +288,7 @@ const ViewTourDetailsPage = () => {
 				<h2 className="text-4xl font-semibold text-center text-primary">Book Tour</h2>
 				{/* Booking Form */}
 				<form
-					className="w-xl mx-auto space-y-3"
+					className="lg:w-xl mx-auto space-y-3"
 					onSubmit={handleSubmit(handleBooking)}
 				>
 					{/* Tour Price */}
