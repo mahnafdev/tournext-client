@@ -69,6 +69,38 @@ const Dashboard = () => {
 			Candidates: candidates?.filter((v) => v.status === "rejected").length,
 		},
 	];
+	// Bookings-by-Price-Range Chart data`
+	const bookingsByPriceRangeChartData = [
+		{
+			maxLength: 4,
+			priceRange: "$5-100",
+			Bookings: bookings?.filter((v) => v.tour_price >= 5 && v.tour_price <= 100).length,
+		},
+		{
+			maxLength: 4,
+			priceRange: "$105-200",
+			Bookings: bookings?.filter((v) => v.tour_price >= 105 && v.tour_price <= 200)
+				.length,
+		},
+		{
+			maxLength: 4,
+			priceRange: "$205-300",
+			Bookings: bookings?.filter((v) => v.tour_price >= 205 && v.tour_price <= 300)
+				.length,
+		},
+		{
+			maxLength: 4,
+			priceRange: "$305-400",
+			Bookings: bookings?.filter((v) => v.tour_price >= 305 && v.tour_price <= 400)
+				.length,
+		},
+		{
+			maxLength: 4,
+			priceRange: "$405-500",
+			Bookings: bookings?.filter((v) => v.tour_price >= 405 && v.tour_price <= 500)
+				.length,
+		},
+	];
 	return (
 		<main
 			id="dashboard-page"
@@ -149,6 +181,21 @@ const Dashboard = () => {
 							height={400}
 							innerRadius={120}
 							outerRadius={170}
+						/>
+					</div>
+				</div>
+				{/* Bookings by Price Range */}
+				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
+						Bookings by Price Range
+					</h4>
+					{/* Line Chart */}
+					<div className="self-center">
+						<CustomLineChart
+							width={560}
+							data={bookingsByPriceRangeChartData}
+							xAxisDataKey="priceRange"
+							lineDataKey="Bookings"
 						/>
 					</div>
 				</div>

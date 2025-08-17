@@ -22,7 +22,7 @@ const CustomLineChart = ({
 			{/* X-axis labels */}
 			<XAxis dataKey={xAxisDataKey} />
 			{/* Y-axis visibility */}
-			<YAxis />
+			<YAxis dataKey="maxLength" />
 			{/* Tooltip for each line breakpoints */}
 			<Tooltip
 				contentStyle={{
