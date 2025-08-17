@@ -1,14 +1,15 @@
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, Tooltip, XAxis, YAxis } from "recharts";
 
-const CustomBarChart = ({
+const CustomLineChart = ({
 	width = 448,
-	height = 448,
+	height = 384,
 	data,
+	lineType = "monotone",
 	xAxisDataKey = "",
-	barDataKey = "",
+	lineDataKey = "",
 }) => {
 	return (
-		<BarChart
+		<LineChart
 			width={width}
 			height={height}
 			data={data}
@@ -22,7 +23,7 @@ const CustomBarChart = ({
 			<XAxis dataKey={xAxisDataKey} />
 			{/* Y-axis visibility */}
 			<YAxis />
-			{/* Tooltip for each Bars */}
+			{/* Tooltip for each line breakpoints */}
 			<Tooltip
 				contentStyle={{
 					backgroundColor: "var(--color-base-300)",
@@ -30,16 +31,17 @@ const CustomBarChart = ({
 					borderRadius: "0.5rem",
 				}}
 			/>
-			{/* Each bar */}
-			<Bar
-				dataKey={barDataKey}
-				fill="var(--color-primary)"
-				fillOpacity="90%"
-				strokeOpacity="50%"
+			{/* Each line */}
+			<Line
+				type={lineType}
+				dataKey={lineDataKey}
+				stroke="var(--color-primary)"
+				strokeOpacity="80%"
+				activeDot={{ r: 5, strokeWidth: 1, stroke: "var(--color-neutral)" }}
 				animationDuration={1200}
 			/>
-		</BarChart>
+		</LineChart>
 	);
 };
 
-export default CustomBarChart;
+export default CustomLineChart;
