@@ -29,6 +29,14 @@ const Sidebar = () => {
 					<ul className="menu w-60 mt-10 px-0 text-[1rem] space-y-1">
 						<li>
 							<NavLink
+								to="/dashboard"
+								className="rounded-md"
+							>
+								Dashboard
+							</NavLink>
+						</li>
+						<li>
+							<NavLink
 								to="/profile"
 								className="rounded-md"
 							>
