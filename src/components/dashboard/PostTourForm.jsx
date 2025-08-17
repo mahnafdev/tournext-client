@@ -385,9 +385,13 @@ const PostTourForm = () => {
 						placeholder="e.g: 200"
 						{...register("tour.price", {
 							required: "This information is required",
+							min: {
+								value: 5,
+								message: "Minimum price is $5",
+							},
 							max: {
-								value: 10000,
-								message: "Maximum price is $10000",
+								value: 5000,
+								message: "Maximum price is $5000",
 							},
 						})}
 					/>

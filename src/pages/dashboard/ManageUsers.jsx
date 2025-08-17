@@ -94,8 +94,6 @@ const ManageUsers = () => {
 							height={350}
 							data={pieChartData}
 							dataKey="Users"
-							circleX="50%"
-							circleY="50%"
 							outerRadius={150}
 						/>
 					</div>

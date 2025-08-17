@@ -3,12 +3,13 @@ import apiClient from "../../services/apiClient";
 import useAuth from "../../hooks/useAuth";
 import CustomLineChart from "../../components/charts/CustomLineChart";
 import CustomBarChart from "../../components/charts/CustomBarChart";
+import CustomDonutPieChart from "../../components/charts/CustomDonutPieChart";
 
 const Dashboard = () => {
 	const { user } = useAuth();
 	// Fetch bookings
 	const { data: bookings } = useQuery({
-		queryKey: ["count", "bookings", user?.email],
+		queryKey: ["dashboard-bookings", user?.email],
 		queryFn: async () => {
 			const res = await apiClient.get(`/bookings?tourist_email=${user?.email}`);
 			return res.data;
@@ -16,7 +17,7 @@ const Dashboard = () => {
 	});
 	// Fetch users
 	const { data: users } = useQuery({
-		queryKey: ["count", "users"],
+		queryKey: ["dashboard-users"],
 		queryFn: async () => {
 			const res = await apiClient.get("/users");
 			return res.data;
@@ -24,7 +25,7 @@ const Dashboard = () => {
 	});
 	// Fetch stories
 	const { data: stories } = useQuery({
-		queryKey: ["count", "stories", user?.email],
+		queryKey: ["dashboard-stories", user?.email],
 		queryFn: async () => {
 			const res = await apiClient.get(`/stories?poster=${user?.email}`);
 			return res.data;
@@ -32,13 +33,14 @@ const Dashboard = () => {
 	});
 	// Fetch candidates
 	const { data: candidates } = useQuery({
-		queryKey: ["count", "candidates"],
+		queryKey: ["dashboard-candidates"],
 		queryFn: async () => {
-			const res = await apiClient.get("/tour-guides?status=Pending");
+			const res = await apiClient.get("/tour-guides");
 			return res.data;
 		},
 	});
-	const verticalBarChartData = [
+	// Users-by-Role Chart data
+	const usersByRoleChartData = [
 		{
 			role: "Admin",
 			Users: users?.filter((v) => v.role === "Admin").length,
@@ -50,6 +52,21 @@ const Dashboard = () => {
 		{
 			role: "Tour Guide",
 			Users: users?.filter((v) => v.role === "Tour Guide").length,
+		},
+	];
+	// Canidates-by-Status Chart data
+	const candidatesByStatusChartData = [
+		{
+			name: "Pending",
+			Candidates: candidates?.filter((v) => v.status === "pending").length,
+		},
+		{
+			name: "Accepted",
+			Candidates: candidates?.filter((v) => v.status === "accepted").length,
+		},
+		{
+			name: "Rejected",
+			Candidates: candidates?.filter((v) => v.status === "rejected").length,
 		},
 	];
 	return (
@@ -68,7 +85,7 @@ const Dashboard = () => {
 					{/* Total Bookings */}
 					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
-							Total Bookings
+							My Bookings
 						</h4>
 						<h2 className="text-4xl font-bold text-primary">
 							{bookings?.length || 0}
@@ -86,7 +103,7 @@ const Dashboard = () => {
 					{/* Total Stories */}
 					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
-							Total Stories
+							My Stories
 						</h4>
 						<h2 className="text-4xl font-bold text-primary">
 							{stories?.length || 0}
@@ -103,17 +120,35 @@ const Dashboard = () => {
 					</div>
 				</div>
 				{/* Visuals & Analytics */}
-				{/* Users by Role - Vertical Bar Chart */}
+				{/* Users by Role */}
 				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 						Users by Role
 					</h4>
+					{/* Vertical Bar Chart */}
 					<div className="self-center">
 						<CustomBarChart
 							height={400}
-							data={verticalBarChartData}
+							data={usersByRoleChartData}
 							xAxisDataKey="role"
 							barDataKey="Users"
+						/>
+					</div>
+				</div>
+				{/* Candidates by Status */}
+				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
+						Candidates by Status
+					</h4>
+					{/* Donut Pie Chart */}
+					<div className="self-center">
+						<CustomDonutPieChart
+							data={candidatesByStatusChartData}
+							dataKey="Candidates"
+							width={400}
+							height={400}
+							innerRadius={120}
+							outerRadius={170}
 						/>
 					</div>
 				</div>

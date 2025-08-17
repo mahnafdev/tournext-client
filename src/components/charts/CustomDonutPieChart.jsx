@@ -1,11 +1,12 @@
 import { Pie, PieChart, Tooltip } from "recharts";
 
-const CustomPieChart = ({
-	width = 448,
-	height = 448,
+const CustomDonutPieChart = ({
+	width = 384,
+	height = 384,
 	data = [],
 	dataKey = "",
-	outerRadius = 100,
+	innerRadius = 100,
+	outerRadius = 140,
 	circleX = "50%",
 	circleY = "50%",
 }) => {
@@ -20,6 +21,7 @@ const CustomPieChart = ({
 				dataKey={dataKey}
 				cx={circleX}
 				cy={circleY}
+				innerRadius={innerRadius}
 				outerRadius={outerRadius}
 				fill="var(--color-primary)"
 				fillOpacity="90%"
@@ -43,4 +45,4 @@ const CustomPieChart = ({
 	);
 };
 
-export default CustomPieChart;
+export default CustomDonutPieChart;
