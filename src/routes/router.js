@@ -21,6 +21,7 @@ import ManageStories from "../pages/dashboard/ManageStories";
 import Dashboard from "../pages/dashboard/Dashboard";
 import TourGuideProfilePage from "../pages/TourGuideProfilePage";
 import UpdateStory from "../pages/dashboard/UpdateStory";
+import NotFoundPage from "../pages/NotFoundPage";
 
 const router = createBrowserRouter([
 	{
@@ -116,6 +117,10 @@ const router = createBrowserRouter([
 				Component: TourGuideApplication,
 			},
 		],
+	},
+	{
+		path: "*",
+		Component: NotFoundPage,
 	},
 ]);
 
