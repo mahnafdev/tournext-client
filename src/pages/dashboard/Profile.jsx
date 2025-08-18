@@ -5,6 +5,7 @@ import apiClient from "../../services/apiClient";
 import Confetti from "react-confetti";
 import { motion } from "motion/react";
 import EditProfile from "../../components/dashboard/EditProfile";
+import { TbMenu2 } from "react-icons/tb";
 
 const Profile = () => {
 	// Welcome Message state
@@ -28,8 +29,14 @@ const Profile = () => {
 	return (
 		<main
 			id="profile-page"
-			className="h-full grid place-items-center"
+			className="h-[90vh] grid place-items-center"
 		>
+			<label
+				htmlFor="dashboard-sidebar"
+				className="btn btn-ghost btn-accent drawer-button absolute top-2 left-4 p-1 h-auto rounded-full lg:hidden"
+			>
+				<TbMenu2 size={32} />
+			</label>
 			{/* Welcome message container */}
 			<div
 				className={`absolute top-0 left-0 z-50 w-screen h-screen bg-base-300/80 ${
@@ -57,13 +64,13 @@ const Profile = () => {
 							type: "tween",
 						},
 					}}
-					className="text-5xl font-semibold text-primary"
+					className="text-4xl lg:text-5xl font-semibold text-primary"
 				>
 					Welcome, {userData?.full_name.split(" ")[0]}!
 				</motion.h1>
 			</div>
 			{/* Profile card */}
-			<div className="lg:w-xl md:w-md w-sm rounded-3xl bg-base-300">
+			<div className="lg:w-xl md:w-lg w-sm rounded-3xl bg-base-300">
 				<div className="relative flex flex-col items-center">
 					{/* Banner image */}
 					<img

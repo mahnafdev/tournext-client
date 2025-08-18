@@ -3,7 +3,7 @@ import Logo from "../components/shared/Logo";
 
 const Sidebar = () => {
 	return (
-		<div className="drawer drawer-open">
+		<div className="drawer lg:drawer-open">
 			{/* Sidebar toggle */}
 			<input
 				id="dashboard-sidebar"
@@ -11,7 +11,7 @@ const Sidebar = () => {
 				className="drawer-toggle"
 			/>
 			{/* Main page content */}
-			<div className="drawer-content p-8">
+			<div className="drawer-content p-4 md:p-6 lg:p-8">
 				<Outlet />
 			</div>
 			{/* Visual Sidebar */}

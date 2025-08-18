@@ -97,7 +97,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 				<span className="text-zinc-300 font-medium">Thumbnail Image</span>
 				<input
 					type="file"
-					className="file-input w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+					className="file-input w-full md:w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
 					defaultValue={story?.images.thumbnail}
 					accept=".png,.jpg,.webp,.svg,.psd"
 					onChange={handleSingleImageUpload}
@@ -109,7 +109,7 @@ const UpdateStoryForm = ({ storyData: story }) => {
 				<span className="text-zinc-300 font-medium">Gallery Images</span>
 				<input
 					type="file"
-					className="file-input w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+					className="file-input w-full md:w-96 text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
 					defaultValue={story?.images.gallery}
 					accept=".png,.jpg,.webp,.svg,.psd"
 					onChange={handleMultipleImageUpload}

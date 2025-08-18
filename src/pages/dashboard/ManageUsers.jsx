@@ -5,6 +5,7 @@ import Select from "react-select";
 import { useState } from "react";
 import CustomBarChart from "../../components/charts/CustomBarChart";
 import CustomPieChart from "../../components/charts/CustomPieChart";
+import { TbMenu2 } from "react-icons/tb";
 
 const ManageUsers = () => {
 	// Filtering & Searching states
@@ -78,11 +79,21 @@ const ManageUsers = () => {
 			className="space-y-12"
 		>
 			{/* Page heading */}
-			<h2 className="text-4xl text-primary font-semibold my-0">Manage Users</h2>
+			<div className="max-lg:flex justify-between items-center my-0">
+				<label
+					htmlFor="dashboard-sidebar"
+					className="btn btn-ghost btn-accent drawer-button p-1 h-auto rounded-full lg:hidden"
+				>
+					<TbMenu2 size={32} />
+				</label>
+				<h2 className="text-3xl lg:text-4xl text-primary font-semibold">
+					Manage Users
+				</h2>
+			</div>
 			{/* A horizontal divider */}
 			<div className="divider" />
 			{/* Bento Grid like Grid layout with analytics and data */}
-			<div className="grid grid-cols-2 gap-4">
+			<div className="grid md:grid-cols-2 gap-4">
 				{/* Users based-on Role */}
 				<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
@@ -109,7 +120,7 @@ const ManageUsers = () => {
 					</div>
 				</div>
 				{/* Users */}
-				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+				<div className="md:col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">Users</h4>
 					{/* Searching & Filtering */}
 					<div className="flex justify-between items-center flex-wrap gap-3 -mt-2 mb-6">

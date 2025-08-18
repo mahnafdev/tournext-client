@@ -4,7 +4,6 @@ import {
 	TbBrandFacebook,
 	TbBrandGithub,
 	TbBrandLinkedin,
-	TbBrandX,
 	TbBrandYoutube,
 } from "react-icons/tb";
 import { motion } from "motion/react";
@@ -129,7 +128,7 @@ const Footer = () => {
 			>
 				{/* LinkedIn Profile */}
 				<a
-					href="https://www.linkedin.com/in/riaurko"
+					href="https://www.linkedin.com/in/mahnafdev"
 					target="_blank"
 					title="LinkedIn"
 				>
@@ -140,7 +139,7 @@ const Footer = () => {
 				</a>
 				{/* GitHub Profile */}
 				<a
-					href="https://github.com/ninjaquasar"
+					href="https://github.com/mahnafdev"
 					target="_blank"
 					title="GitHub"
 				>
@@ -149,20 +148,9 @@ const Footer = () => {
 						className="hover:stroke-accent transition-colors duration-100"
 					/>
 				</a>
-				{/* X (Twitter) Profile */}
-				<a
-					href="https://x.com/riaurko"
-					target="_blank"
-					title="X (formerly Twitter)"
-				>
-					<TbBrandX
-						size={36}
-						className="hover:stroke-accent transition-colors duration-100"
-					/>
-				</a>
 				{/* Facebook Profile */}
 				<a
-					href="https://www.facebook.com/riaurko"
+					href="https://www.facebook.com/mahnafdev"
 					target="_blank"
 					title="Facebook"
 				>

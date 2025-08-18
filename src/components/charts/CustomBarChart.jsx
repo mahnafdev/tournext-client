@@ -1,4 +1,13 @@
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import {
+	Bar,
+	BarChart,
+	CartesianGrid,
+	Legend,
+	ResponsiveContainer,
+	Tooltip,
+	XAxis,
+	YAxis,
+} from "recharts";
 
 const CustomBarChart = ({
 	width = 448,
@@ -8,37 +17,46 @@ const CustomBarChart = ({
 	barDataKey = "",
 }) => {
 	return (
-		<BarChart
-			width={width}
-			height={height}
-			data={data}
+		<div
+			className="max-xl:w-80 max-xl:h-80"
+			style={{
+				width: width,
+				height: height,
+			}}
 		>
-			{/* Grid background */}
-			<CartesianGrid
-				strokeDasharray="1 1"
-				strokeOpacity="25%"
-			/>
-			{/* X-axis labels */}
-			<XAxis dataKey={xAxisDataKey} />
-			{/* Y-axis visibility */}
-			<YAxis />
-			{/* Tooltip for each Bars */}
-			<Tooltip
-				contentStyle={{
-					backgroundColor: "var(--color-base-300)",
-					borderColor: "var(--color-accent)",
-					borderRadius: "0.5rem",
-				}}
-			/>
-			{/* Each bar */}
-			<Bar
-				dataKey={barDataKey}
-				fill="var(--color-primary)"
-				fillOpacity="90%"
-				strokeOpacity="50%"
-				animationDuration={1200}
-			/>
-		</BarChart>
+			<ResponsiveContainer
+				width="100%"
+				height="100%"
+			>
+				<BarChart data={data}>
+					{/* Grid background */}
+					<CartesianGrid
+						strokeDasharray="1 1"
+						strokeOpacity="25%"
+					/>
+					{/* X-axis labels */}
+					<XAxis dataKey={xAxisDataKey} />
+					{/* Y-axis visibility */}
+					<YAxis />
+					{/* Tooltip for each Bars */}
+					<Tooltip
+						contentStyle={{
+							backgroundColor: "var(--color-base-300)",
+							borderColor: "var(--color-accent)",
+							borderRadius: "0.5rem",
+						}}
+					/>
+					{/* Each bar */}
+					<Bar
+						dataKey={barDataKey}
+						fill="var(--color-primary)"
+						fillOpacity="90%"
+						strokeOpacity="50%"
+						animationDuration={1200}
+					/>
+				</BarChart>
+			</ResponsiveContainer>
+		</div>
 	);
 };
 

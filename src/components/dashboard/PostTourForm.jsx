@@ -95,13 +95,13 @@ const PostTourForm = () => {
 	return (
 		<form
 			id="post-tour-form"
-			className="space-y-8 rounded-4xl p-6 -mt-4 bg-base-300"
+			className="space-y-6 lg:space-y-8 rounded-3xl md:rounded-4xl p-4 md:p-6 -mt-4 bg-base-300"
 			onSubmit={handleSubmit(handlePost)}
 		>
 			{/* Tour-related Information */}
-			<div className="grid grid-cols-5 items-center gap-8">
+			<div className="grid lg:grid-cols-5 items-center gap-2 md:gap-4 lg:gap-8">
 				{/* Tour Title */}
-				<div className="col-span-3 space-y-1">
+				<div className="lg:col-span-3 space-y-1">
 					<label className="input w-full text-[1rem] rounded-lg">
 						<span className="label text-zinc-300 font-medium">Tour Title</span>
 						<input
@@ -122,9 +122,9 @@ const PostTourForm = () => {
 					)}
 				</div>
 				{/* Tour Type */}
-				<div className="col-span-2 space-y-2">
-					<div className="flex items-center gap-x-6">
-						<div className="flex items-center gap-x-2">
+				<div className="lg:col-span-2 space-y-2">
+					<div className="flex items-center gap-x-4 md:gap-x-6">
+						<div className="flex items-center gap-x-1.5 md:gap-x-2">
 							<input
 								type="radio"
 								value="group"
@@ -135,7 +135,7 @@ const PostTourForm = () => {
 							/>
 							<span className="font-medium cursor-default">Group</span>
 						</div>
-						<div className="flex items-center gap-x-2">
+						<div className="flex items-center gap-x-1.5 md:gap-x-2">
 							<input
 								type="radio"
 								value="private"
@@ -146,7 +146,7 @@ const PostTourForm = () => {
 							/>
 							<span className="font-medium cursor-default">Private</span>
 						</div>
-						<div className="flex items-center gap-x-2">
+						<div className="flex items-center gap-x-1.5 md:gap-x-2">
 							<input
 								type="radio"
 								value="self guided"
@@ -164,13 +164,13 @@ const PostTourForm = () => {
 				</div>
 			</div>
 			{/* Images */}
-			<div className="grid grid-cols-3 gap-8">
+			<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8">
 				{/* Thumbnail */}
 				<div className="flex flex-col gap-y-1">
 					<span className="text-lg text-zinc-300 font-medium">Thumbnail</span>
 					<input
 						type="file"
-						className="file-input w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+						className="file-input w-full lg:w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
 						accept=".png,.jpg,.webp,.svg,.psd"
 						onChange={handleSingleImageUpload}
 						required
@@ -181,7 +181,7 @@ const PostTourForm = () => {
 					<span className="text-lg text-zinc-300 font-medium">Gallery</span>
 					<input
 						type="file"
-						className="file-input w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
+						className="file-input w-full lg:w-sm text-[1rem] text-zinc-200 file:text-zinc-100 file:font-medium file:text-[1rem]"
 						accept=".png,.jpg,.webp,.svg,.psd"
 						onChange={handleMultipleImageUpload}
 						multiple={true}
@@ -212,7 +212,7 @@ const PostTourForm = () => {
 				)}
 			</div>
 			{/* Location-related Information */}
-			<div className="grid grid-cols-2 gap-8">
+			<div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8">
 				{/* Departure Point */}
 				<div className="space-y-1">
 					<label className="input w-full text-[1rem] rounded-lg">
@@ -257,7 +257,7 @@ const PostTourForm = () => {
 				</div>
 			</div>
 			{/* Time-related information */}
-			<div className="grid grid-cols-2 gap-8">
+			<div className="grid md:grid-cols-2 gap-2 md:gap-4 lg:gap-8">
 				{/* Start Date */}
 				<label className="input relative w-full text-[1rem] rounded-lg">
 					<DatePicker
@@ -295,12 +295,12 @@ const PostTourForm = () => {
 				</div>
 			</div>
 			{/* Services-related Information */}
-			<div className="grid grid-cols-2 gap-8">
+			<div className="grid lg:grid-cols-2 gap-2 md:gap-4 lg:gap-8">
 				{/* Meals */}
 				<div>
 					<label className="w-full text-[1rem] space-y-2">
 						<span className="label text-zinc-300 font-medium text-lg">Meals</span>
-						<div className="flex items-center gap-x-4">
+						<div className="flex max-md:flex-wrap items-center max-md:gap-y-2 gap-x-4">
 							<div className="flex items-center gap-x-2">
 								<input
 									type="checkbox"
@@ -377,7 +377,7 @@ const PostTourForm = () => {
 			</div>
 			{/* Tour Price */}
 			<div className="space-y-1">
-				<label className="input w-1/4 text-[1rem] rounded-lg">
+				<label className="input w-full md:w-2/5 xl:w-1/4 text-[1rem] rounded-lg">
 					<span className="label text-zinc-300 font-medium">Tour Price</span>
 					<input
 						type="number"
@@ -404,14 +404,14 @@ const PostTourForm = () => {
 			{/* A horizontal divider */}
 			<div className="divider" />
 			{/* Itinerary Days */}
-			<div className="grid grid-cols-4 gap-8">
+			<div className="grid md:grid-cols-5 lg:grid-cols-4 gap-5 md:gap-8">
 				{/* Itinerary */}
-				<div className="col-span-3 space-y-4">
+				<div className="md:col-span-4 lg:col-span-3 space-y-4">
 					<h6 className="text-lg font-medium text-zinc-300">Tour Itinerary</h6>
 					{itineraries.map((itinerary, index) => (
 						<div
 							key={index}
-							className="space-y-1"
+							className="space-y-2 lg:space-y-1"
 						>
 							{/* Itinerary Title */}
 							<label className="input w-full text-[1rem] rounded-lg">
@@ -431,8 +431,8 @@ const PostTourForm = () => {
 								/>
 							</label>
 							{/* Itinerary Description */}
-							<label className="grid grid-cols-7 gap-4">
-								<span className="ml-2 text-zinc-300 font-medium">
+							<label className="grid lg:grid-cols-7 lg:gap-4">
+								<span className="lg:ml-2 text-zinc-300 font-medium">
 									Day {index + 1} Description
 								</span>
 								<textarea

@@ -172,9 +172,9 @@ const NavBar = () => {
 								type="button"
 								className="grid place-items-center cursor-pointer"
 							>
-								{user.photoURL ? (
+								{user?.photoURL ? (
 									<img
-										src={user.photoURL}
+										src={user?.photoURL}
 										alt="User Image"
 										className="size-10 border border-accent rounded-full object-cover object-center"
 										referrerPolicy="no-referrer"

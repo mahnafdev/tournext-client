@@ -104,10 +104,10 @@ const router = createBrowserRouter([
 				path: "/dashboard/stories",
 				Component: ManageStories,
 			},
-			{
-				path: "/dashboard/stories/update/:story_id",
-				Component: UpdateStory,
-			},
+			// {
+			// 	path: "/dashboard/stories/update/:story_id",
+			// 	Component: UpdateStory,
+			// },
 			{
 				path: "/dashboard/candidates",
 				Component: ManageCandidates,

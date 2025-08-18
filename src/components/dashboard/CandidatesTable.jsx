@@ -85,14 +85,16 @@ const CandidatesTable = () => {
 						} = candidate;
 						return (
 							<tr key={guide_id}>
-								<td className="w-36">
+								<td className="lg:w-36">
 									#{guide_id?.split("-")[1].toUpperCase()}
 								</td>
-								<td className="w-sm">{applicationTitle}</td>
-								<td className="w-sm text-xs leading-tight">{joiningReason}</td>
+								<td className="lg:w-sm">{applicationTitle}</td>
+								<td className="lg:w-sm text-xs leading-tight">
+									{joiningReason}
+								</td>
 								<td>{candidateName}</td>
-								<td className="w-40">Tourist</td>
-								<td className="w-44">
+								<td className="lg:w-40">Tourist</td>
+								<td className="lg:w-44">
 									<a
 										href={resume}
 										target="_blank"
@@ -101,7 +103,7 @@ const CandidatesTable = () => {
 										{resume.split("/")[2]}
 									</a>
 								</td>
-								<td className="w-36">
+								<td className="lg:w-36">
 									{country[0].toUpperCase()}
 									{country.slice(1)}
 								</td>

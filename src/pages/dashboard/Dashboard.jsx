@@ -107,15 +107,15 @@ const Dashboard = () => {
 			className="space-y-12"
 		>
 			{/* Page heading */}
-			<h2 className="text-4xl text-primary font-semibold my-0">Dashboard</h2>
+			<h2 className="text-3xl lg:text-4xl text-primary font-semibold my-0">Dashboard</h2>
 			{/* A horizontal divider */}
 			<div className="divider" />
 			{/* Bento Grid */}
-			<div className="grid grid-cols-4 gap-4">
+			<div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
 				{/* Card Stats */}
-				<div className="col-span-4 grid grid-cols-4 gap-4">
+				<div className="col-span-4 grid md:grid-cols-2 xl:grid-cols-4 max-md:place-self-start gap-4">
 					{/* Total Bookings */}
-					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+					<div className="max-w-96 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							My Bookings
 						</h4>
@@ -124,7 +124,7 @@ const Dashboard = () => {
 						</h2>
 					</div>
 					{/* Total Users */}
-					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+					<div className="max-w-96 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							Total Users
 						</h4>
@@ -133,7 +133,7 @@ const Dashboard = () => {
 						</h2>
 					</div>
 					{/* Total Stories */}
-					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+					<div className="max-w-96 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							My Stories
 						</h4>
@@ -142,7 +142,7 @@ const Dashboard = () => {
 						</h2>
 					</div>
 					{/* Total Candidates */}
-					<div className="p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
+					<div className="max-w-96 p-6 bg-base-300 border border-primary/30 rounded-2xl space-y-4">
 						<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 							Total Candidates
 						</h4>
@@ -153,7 +153,7 @@ const Dashboard = () => {
 				</div>
 				{/* Visuals & Analytics */}
 				{/* Users by Role */}
-				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+				<div className="xl:col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 						Users by Role
 					</h4>
@@ -168,7 +168,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 				{/* Candidates by Status */}
-				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+				<div className="xl:col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 						Candidates by Status
 					</h4>
@@ -185,7 +185,7 @@ const Dashboard = () => {
 					</div>
 				</div>
 				{/* Bookings by Price Range */}
-				<div className="col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
+				<div className="xl:col-span-2 p-6 bg-base-300 border border-primary/30 rounded-2xl flex flex-col gap-y-4">
 					<h4 className="text-2xl font-semibold text-zinc-300 capitalize">
 						Bookings by Price Range
 					</h4>

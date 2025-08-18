@@ -102,18 +102,7 @@ const StoryCard = ({ storyData, isMyStory = false, isGuideStory = false }) => {
 			</div>
 			{/* Actions */}
 			{isMyStory && (
-				<div className="flex gap-1 pl-1">
-					<Link
-						to={`/dashboard/stories/update/${story_id}`}
-						target="_blank"
-					>
-						<button
-							type="button"
-							className="btn btn-accent btn-outline text-[1rem] px-3 h-8 rounded-md"
-						>
-							Edit
-						</button>
-					</Link>
+				<div>
 					<button
 						type="button"
 						className="btn btn-accent btn-outline text-[1rem] px-3 h-8 rounded-md"

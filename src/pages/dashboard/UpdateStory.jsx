@@ -20,10 +20,14 @@ const UpdateStory = () => {
 			className="space-y-12"
 		>
 			{/* Page heading */}
-			<h2 className="text-4xl text-primary font-semibold my-0">Update Story</h2>
+			<h2 className="text-3xl lg:text-4xl text-primary font-semibold my-0">
+				Update Story
+			</h2>
 			{/* A horizontal divider */}
 			<div className="divider" />
-			<h3 className="text-[1.75rem] font-medium">Update "{story?.title}" Story</h3>
+			<h3 className="text-xl md:text-2xl lg:text-[1.75rem] font-medium">
+				Update "{story?.title}" Story
+			</h3>
 			{/* The update form, Ctrl+Click on 'UpdateStoryForm' to see the full component */}
 			<UpdateStoryForm storyData={story} />
 		</main>

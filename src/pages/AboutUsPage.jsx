@@ -71,7 +71,7 @@ const AboutUsPage = () => {
 				{/* Social Links */}
 				<div className="flex gap-3">
 					<a
-						href="https://github.com/ninjaquasar"
+						href="https://github.com/mahnafdev"
 						target="_blank"
 						title="GitHub"
 					>
@@ -81,7 +81,7 @@ const AboutUsPage = () => {
 						/>
 					</a>
 					<a
-						href="https://www.linkedin.com/in/riaurko"
+						href="https://www.linkedin.com/in/mahnafdev"
 						target="_blank"
 						title="LinkedIn"
 					>
@@ -91,7 +91,7 @@ const AboutUsPage = () => {
 						/>
 					</a>
 					<a
-						href="https://www.facebook.com/ninjaquasar"
+						href="https://www.facebook.com/mahnafdev"
 						target="_blank"
 						title="Facebook"
 					>

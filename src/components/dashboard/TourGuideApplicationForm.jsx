@@ -42,7 +42,7 @@ const TourGuideApplicationForm = () => {
 	return (
 		<form
 			id="tour-guide-application-form"
-			className="space-y-4 rounded-4xl p-6 -mt-4 bg-base-300"
+			className="space-y-4 rounded-3xl md:rounded-4xl p-4 md:p-6 -mt-4 bg-base-300"
 			onSubmit={handleSubmit(handleSubmitApplication)}
 		>
 			{/* Application Title */}
