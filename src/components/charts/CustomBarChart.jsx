@@ -18,7 +18,7 @@ const CustomBarChart = ({
 }) => {
 	return (
 		<div
-			className="max-xl:w-80 max-xl:h-80"
+			className="max-md:!w-88 max-md:!h-88"
 			style={{
 				width: width,
 				height: height,

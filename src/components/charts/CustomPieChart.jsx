@@ -11,7 +11,6 @@ const CustomPieChart = ({
 }) => {
 	return (
 		<div
-			className="max-md:!scale-100"
 			style={{
 				width: width,
 				height: height,
